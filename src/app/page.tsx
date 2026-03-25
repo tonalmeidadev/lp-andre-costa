@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center">
       {!unlocked && (
-        <section className="flex w-full max-w-240 flex-col items-center gap-4 p-8">
+        <section className="flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-16 pb-8">
           <h1
             dangerouslySetInnerHTML={{ __html: page.zero.headline.html }}
             className={twMerge(
