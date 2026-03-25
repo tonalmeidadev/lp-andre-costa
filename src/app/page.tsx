@@ -20,7 +20,7 @@ import { VSL } from "@/components/vsl/vsl";
 import { page } from "@/constants/page";
 
 export default function HomePage() {
-  const [unlocked, setUnlocked] = useState(true);
+  const [unlocked, setUnlocked] = useState(false);
 
   return (
     <main className="flex flex-col items-center">
