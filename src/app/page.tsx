@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from "react";
-
-// import { twMerge } from "tailwind-merge";
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { twMerge } from "tailwind-merge";
@@ -25,10 +22,8 @@ import { VSL } from "@/components/vsl/vsl";
 import { page } from "@/constants/page";
 
 export default function HomePage() {
-  const [_, setUnlocked] = useState(true);
   const [compact, setCompact] = useState(false);
 
-  const unlocked = true;
   const ctaPathname = "https://www.google.com";
 
   useEffect(() => {
@@ -76,10 +71,58 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col items-center">
-      {/* {!unlocked && ( */}
-      <section className="mt-20 flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-16 pb-8">
+      <section className="fixed top-0 right-0 left-0 z-50 flex w-dvw justify-center bg-[#100E10] shadow-2xl shadow-[#100E10]">
+        <div
+          className={twMerge(
+            "flex w-full max-w-300 flex-col items-center justify-center gap-4 px-4 transition-all sm:flex-row",
+            compact ? "py-4" : "py-8"
+          )}
+        >
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5">
+                <div className="size-2.5 animate-pulse rounded-full bg-red-500" />
+
+                <span
+                  className="text-center font-semibold uppercase sm:text-start [&>span]:line-through"
+                  dangerouslySetInnerHTML={{ __html: page.zero.description }}
+                />
+              </div>
+
+              <span className="hidden sm:block">—</span>
+
+              <Link
+                href={ctaPathname}
+                className="flex items-center gap-1 text-[#67A4EE] underline"
+              >
+                <span className="font-semibold">{page.zero.cta}</span>
+                <ArrowUpRightIcon weight="bold" />
+              </Link>
+            </div>
+
+            <span className="flex items-center gap-1 text-sm font-semibold text-neutral-400">
+              <span className="hidden sm:block">{page.zero.conditionText}</span>
+              <span className="sm:hidden">{page.zero.conditionTextTimer} </span>
+              <CountdownTimer
+                variant="text"
+                duration={1052}
+                className="sm:hidden"
+              />
+              <span className="sm:hidden">minutos</span>
+            </span>
+          </div>
+
+          <CountdownTimer duration={1052} className="hidden! sm:flex!" />
+        </div>
+      </section>
+
+      <section
+        className={twMerge(
+          "mt-32 flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-4 pb-8"
+        )}
+      >
         <h1
-          dangerouslySetInnerHTML={{ __html: page.zero.headline.html }}
+          dangerouslySetInnerHTML={{ __html: page.one.headline.html }}
           className={twMerge(
             "text-center text-4xl font-medium",
             "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
@@ -87,294 +130,231 @@ export default function HomePage() {
           )}
         />
 
-        <span className="text-center">{page.zero.description}</span>
+        <span className="text-center">{page.one.description}</span>
       </section>
-      {/* )} */}
 
-      {unlocked && (
-        <section className="fixed top-0 right-0 left-0 z-50 flex w-dvw justify-center bg-[#100E10] shadow-2xl shadow-[#100E10]">
-          <div
-            className={twMerge(
-              "flex w-full max-w-300 flex-col items-center justify-center gap-4 px-4 transition-all sm:flex-row",
-              compact ? "py-4" : "py-8"
-            )}
-          >
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="size-2.5 animate-pulse rounded-full bg-red-500" />
+      <VSL videoId={page.two.vsl.videoId} />
 
-                  <span
-                    className="text-center font-semibold uppercase sm:text-start [&>span]:line-through"
-                    dangerouslySetInnerHTML={{ __html: page.one.description }}
-                  />
-                </div>
+      <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
+        <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
+          <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
+          <span className="text-sm font-semibold text-[#FF4848] uppercase">
+            {page.three.ctaRed}
+          </span>
+        </div>
 
-                <span className="hidden sm:block">—</span>
+        <h3 className="text-center text-2xl font-semibold">
+          {page.three.subdescription}
+        </h3>
 
-                <Link
-                  href={ctaPathname}
-                  className="flex items-center gap-1 text-[#67A4EE] underline"
-                >
-                  <span className="font-semibold">{page.one.cta}</span>
-                  <ArrowUpRightIcon weight="bold" />
-                </Link>
-              </div>
+        <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
+      </section>
 
-              <span className="flex items-center gap-1 text-sm font-semibold text-neutral-400">
-                <span className="hidden sm:block">
-                  {page.one.conditionText}
-                </span>
-                <span className="sm:hidden">
-                  {page.one.conditionTextTimer}{" "}
-                </span>
-                <CountdownTimer
-                  variant="text"
-                  duration={1052}
-                  className="sm:hidden"
-                />
-                <span className="sm:hidden">minutos</span>
-              </span>
-            </div>
-
-            <CountdownTimer duration={1052} className="hidden! sm:flex!" />
-          </div>
-        </section>
-      )}
-
-      {/* Temporário - descomentar sessão abaixo quando habilitar VSL */}
-      <VSL
-        videoId={page.two.vsl.videoId}
-        unlockAt={page.two.vsl.unlockAt}
-        onUnlock={() => setUnlocked(true)}
+      <Hero
+        headline={page.four.headline.html}
+        description={page.four.description}
       />
 
-      {unlocked && (
-        <>
-          {/* Temporário - descomentar sessão abaixo quando habilitar VSL */}
-          <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
-            <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
-              <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
-              <span className="text-sm font-semibold text-[#FF4848] uppercase">
-                {page.three.ctaRed}
-              </span>
-            </div>
+      <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
+        <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
+          <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
+          <span className="text-sm font-semibold text-[#FF4848] uppercase">
+            {page.three.ctaRed}
+          </span>
+        </div>
 
-            <h3 className="text-center text-2xl font-semibold">
-              {page.three.subdescription}
-            </h3>
+        <h2 className="text-center text-2xl font-semibold">
+          {page.three.subdescription}
+        </h2>
 
-            <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
-          </section>
+        <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
+      </section>
 
-          <Hero
-            headline={page.four.headline.html}
-            description={page.four.description}
+      <Marquee text={page.six.marqueeText} />
+
+      <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
+        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+          {page.five.title}
+        </h2>
+
+        <span className="mb-6 text-center">{page.five.description}</span>
+
+        <BulletPoints
+          itemsPerColumn={page.five.bullets.itemsPerColumn}
+          variant={page.five.bullets.variant}
+          items={page.five.bullets.items}
+          className="mb-12"
+        />
+
+        <ButtonSecure text={page.five.cta} pathname={ctaPathname} />
+      </section>
+
+      <section className="flex h-fit w-full flex-col items-center py-8 md:py-16">
+        <div className="flex w-full max-w-240 flex-col px-8">
+          <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+            {page.seven.title}
+          </h2>
+
+          <span
+            className="mb-6 text-center"
+            dangerouslySetInnerHTML={{ __html: page.seven.description }}
           />
 
-          {/* Temporário - remover sessão abaixo quando habilitar VSL */}
-          <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
-            <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
-              <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
-              <span className="text-sm font-semibold text-[#FF4848] uppercase">
-                {page.three.ctaRed}
-              </span>
-            </div>
+          <h3 className="text-center text-2xl font-semibold">
+            {page.seven.subdescription}
+          </h3>
+        </div>
 
-            <h2 className="text-center text-2xl font-semibold">
-              {page.three.subdescription}
-            </h2>
+        <div className="mt-12 flex h-fit w-full flex-col px-8">
+          <SwiperCard items={page.seven.cards.items} />
+        </div>
+      </section>
 
-            <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
-          </section>
+      <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
+        <h2 className="mb-12 text-center text-4xl font-medium -tracking-wide">
+          {page.eight.title}
+        </h2>
 
-          <Marquee text={page.six.marqueeText} />
-
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-            <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-              {page.five.title}
-            </h2>
-
-            <span className="mb-6 text-center">{page.five.description}</span>
+        {page.eight.bullets.map((item, index) => (
+          <div key={index} className="flex w-full flex-col gap-6">
+            {item?.description && (
+              <span className="mb-6 text-center">{item.description}</span>
+            )}
 
             <BulletPoints
-              itemsPerColumn={page.five.bullets.itemsPerColumn}
-              variant={page.five.bullets.variant}
-              items={page.five.bullets.items}
+              itemsPerColumn={item.bullets.itemsPerColumn}
+              variant={item.bullets.variant}
+              items={item.bullets.items}
               className="mb-12"
             />
+          </div>
+        ))}
 
-            <ButtonSecure text={page.five.cta} pathname={ctaPathname} />
-          </section>
+        <h3 className="mb-12 text-center text-2xl font-semibold -tracking-wide">
+          {page.eight.blocks.title}
+        </h3>
 
-          <section className="flex w-full flex-col items-center py-8 md:py-16">
-            <div className="flex w-full max-w-240 flex-col px-8">
-              <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-                {page.seven.title}
-              </h2>
+        {page.eight.blocks.items.map((item, index) => (
+          <div key={index} className="flex w-full flex-col gap-6">
+            <Blocks
+              itemsPerColumn={item.blocks.itemsPerColumn}
+              items={item.blocks.items}
+              className="mb-12"
+            />
+          </div>
+        ))}
 
-              <span
-                className="mb-6 text-center"
-                dangerouslySetInnerHTML={{ __html: page.seven.description }}
-              />
+        <div className="flex w-full max-w-240 flex-col">
+          <div className="mb-6 flex items-center gap-4 rounded-[0.625rem] border border-amber-400/25 bg-amber-400/5 px-6 py-4 shadow-2xl shadow-amber-400/10">
+            <span className="text-2xl">⚡</span>
+            <span className="font-semibold text-amber-500">
+              {page.eight.ctaCard}
+            </span>
+          </div>
 
-              <h3 className="text-center text-2xl font-semibold">
-                {page.seven.subdescription}
-              </h3>
-            </div>
+          <ButtonSecure text={page.eight.cta} pathname={ctaPathname} />
+        </div>
+      </section>
 
-            <div className="mt-12 flex h-fit w-full flex-col px-8">
-              <SwiperCard items={page.seven.cards.items} />
-            </div>
-          </section>
+      <section className="flex w-full max-w-300 flex-col items-center px-8 py-8 md:py-16">
+        <div className="mb-12 grid w-full grid-cols-1 items-center gap-8 sm:grid-cols-2">
+          <h2 className="text-center text-4xl font-medium -tracking-wide sm:max-w-100 sm:text-start">
+            {page.nine.title}
+          </h2>
 
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-            <h2 className="mb-12 text-center text-4xl font-medium -tracking-wide">
-              {page.eight.title}
-            </h2>
+          <span className="w-full text-center sm:max-w-80 sm:text-start">
+            {page.nine.description}
+          </span>
+        </div>
 
-            {page.eight.bullets.map((item, index) => (
-              <div key={index} className="flex w-full flex-col gap-6">
-                {item?.description && (
-                  <span className="mb-6 text-center">{item.description}</span>
-                )}
+        <TestimonialCarousel items={page.nine.testimonials.cards.items} />
+      </section>
 
-                <BulletPoints
-                  itemsPerColumn={item.bullets.itemsPerColumn}
-                  variant={item.bullets.variant}
-                  items={item.bullets.items}
-                  className="mb-12"
-                />
-              </div>
-            ))}
+      <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
+        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+          {page.ten.title}
+        </h2>
 
-            <h3 className="mb-12 text-center text-2xl font-semibold -tracking-wide">
-              {page.eight.blocks.title}
+        <span className="mb-6 text-center">{page.ten.description}</span>
+
+        {page.ten.sections.map((item, index) => (
+          <div key={index} className="flex flex-col gap-6">
+            <h3 className="text-center text-2xl font-semibold">
+              {item.subdescription}
             </h3>
 
-            {page.eight.blocks.items.map((item, index) => (
-              <div key={index} className="flex w-full flex-col gap-6">
-                <Blocks
-                  itemsPerColumn={item.blocks.itemsPerColumn}
-                  items={item.blocks.items}
-                  className="mb-12"
-                />
-              </div>
-            ))}
-
-            <div className="flex w-full max-w-240 flex-col">
-              <div className="mb-6 flex items-center gap-4 rounded-[0.625rem] border border-amber-400/25 bg-amber-400/5 px-6 py-4 shadow-2xl shadow-amber-400/10">
-                <span className="text-2xl">⚡</span>
-                <span className="font-semibold text-amber-500">
-                  {page.eight.ctaCard}
-                </span>
-              </div>
-
-              <ButtonSecure text={page.eight.cta} pathname={ctaPathname} />
-            </div>
-          </section>
-
-          <section className="flex w-full max-w-300 flex-col items-center px-8 py-8 md:py-16">
-            <div className="mb-12 grid w-full grid-cols-1 items-center gap-8 sm:grid-cols-2">
-              <h2 className="text-center text-4xl font-medium -tracking-wide sm:max-w-100 sm:text-start">
-                {page.nine.title}
-              </h2>
-
-              <span className="w-full text-center sm:max-w-80 sm:text-start">
-                {page.nine.description}
-              </span>
-            </div>
-
-            <TestimonialCarousel items={page.nine.testimonials.cards.items} />
-          </section>
-
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-            <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-              {page.ten.title}
-            </h2>
-
-            <span className="mb-6 text-center">{page.ten.description}</span>
-
-            {page.ten.sections.map((item, index) => (
-              <div key={index} className="flex flex-col gap-6">
-                <h3 className="text-center text-2xl font-semibold">
-                  {item.subdescription}
-                </h3>
-
-                <BulletPoints
-                  itemsPerColumn={item.bullets.itemsPerColumn}
-                  variant={item.bullets.variant}
-                  items={item.bullets.items}
-                  className="mb-12"
-                />
-              </div>
-            ))}
-
-            <ButtonSecure text={page.ten.cta} pathname={ctaPathname} />
-          </section>
-
-          <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
-            <Image
-              src={page.eleven.biography.backgroundUrl}
-              alt="Foto de André Costa"
-              width={1920}
-              height={925}
-              className="pointer-events-none absolute -z-30 h-full w-full object-cover select-none"
+            <BulletPoints
+              itemsPerColumn={item.bullets.itemsPerColumn}
+              variant={item.bullets.variant}
+              items={item.bullets.items}
+              className="mb-12"
             />
+          </div>
+        ))}
 
-            <div className="absolute bottom-0 -z-10 h-1/2 w-full bg-linear-to-t from-[#100E10] to-[#100E10]/0" />
-            <div className="absolute top-0 -z-10 h-1/2 w-full bg-linear-to-b from-[#100E10] to-[#100E10]/0" />
+        <ButtonSecure text={page.ten.cta} pathname={ctaPathname} />
+      </section>
 
-            <div className="flex w-full max-w-160 flex-col items-center gap-12 px-8 lg:max-w-240 lg:flex-row">
-              <Image
-                src={page.eleven.biography.photoUrl}
-                alt="Imagem"
-                width={438}
-                height={572}
-                className="pointer-events-none size-80 shrink-0 rounded-full object-cover object-top-right select-none xs:size-100 lg:order-1 lg:size-[inherit] lg:h-142 lg:w-108 lg:rounded-lg"
-              />
+      <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
+        <Image
+          src={page.eleven.biography.backgroundUrl}
+          alt="Foto de André Costa"
+          width={1920}
+          height={925}
+          className="pointer-events-none absolute -z-30 h-full w-full object-cover select-none"
+        />
 
-              <div className="flex flex-col items-center gap-4 lg:items-start">
-                <h2 className="w-fit bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-center text-4xl font-medium text-transparent lg:text-left">
-                  {page.eleven.biography.name}
-                </h2>
+        <div className="absolute bottom-0 -z-10 h-1/2 w-full bg-linear-to-t from-[#100E10] to-[#100E10]/0" />
+        <div className="absolute top-0 -z-10 h-1/2 w-full bg-linear-to-b from-[#100E10] to-[#100E10]/0" />
 
-                <div
-                  className="text-center lg:text-left"
-                  dangerouslySetInnerHTML={{
-                    __html: page.eleven.biography.bio.html,
-                  }}
-                />
-              </div>
-            </div>
-          </section>
+        <div className="flex w-full max-w-160 flex-col items-center gap-12 px-8 lg:max-w-240 lg:flex-row">
+          <Image
+            src={page.eleven.biography.photoUrl}
+            alt="Imagem"
+            width={438}
+            height={572}
+            className="pointer-events-none size-80 shrink-0 rounded-full object-cover object-top-right select-none xs:size-100 lg:order-1 lg:size-[inherit] lg:h-142 lg:w-108 lg:rounded-lg"
+          />
 
-          <section className="flex w-full justify-center bg-linear-to-r from-[#121315] via-[#12131500] to-[#121315] py-16">
-            <div className="flex max-w-300 flex-col items-center justify-between gap-16 px-8 lg:flex-row">
-              <div className="flex flex-col gap-4">
-                <h2 className="text-center text-2xl font-semibold lg:text-left">
-                  {page.twelve.title}
-                </h2>
-                <span className="text-center lg:text-left">
-                  {page.twelve.description}
-                </span>
-              </div>
-
-              <ButtonSecure text={page.twelve.cta} pathname={ctaPathname} />
-            </div>
-          </section>
-
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-            <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-              Perguntas frequentes
+          <div className="flex flex-col items-center gap-4 lg:items-start">
+            <h2 className="w-fit bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-center text-4xl font-medium text-transparent lg:text-left">
+              {page.eleven.biography.name}
             </h2>
 
-            <Accordion items={page.thirteen.faq.items} />
-          </section>
-        </>
-      )}
+            <div
+              className="text-center lg:text-left"
+              dangerouslySetInnerHTML={{
+                __html: page.eleven.biography.bio.html,
+              }}
+            />
+          </div>
+        </div>
+      </section>
 
-      {/* <ExitIntentModal ctaPathname={ctaPathname} /> */}
+      <section className="flex w-full justify-center bg-linear-to-r from-[#121315] via-[#12131500] to-[#121315] py-16">
+        <div className="flex max-w-300 flex-col items-center justify-between gap-16 px-8 lg:flex-row">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-center text-2xl font-semibold lg:text-left">
+              {page.twelve.title}
+            </h2>
+            <span className="text-center lg:text-left">
+              {page.twelve.description}
+            </span>
+          </div>
+
+          <ButtonSecure text={page.twelve.cta} pathname={ctaPathname} />
+        </div>
+      </section>
+
+      <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
+        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+          Perguntas frequentes
+        </h2>
+
+        <Accordion items={page.thirteen.faq.items} />
+      </section>
+
+      <ExitIntentModal ctaPathname={ctaPathname} />
     </main>
   );
 }

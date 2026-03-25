@@ -29,15 +29,15 @@ export type BulletSectionWithSub = {
 
 export type PageType = {
   zero: {
-    headline: { html: string };
-    description: string;
-  };
-
-  one: {
     conditionText: string;
     conditionTextTimer: string;
     description: string;
     cta: string;
+  };
+
+  one: {
+    headline: { html: string };
+    description: string;
   };
 
   two: {

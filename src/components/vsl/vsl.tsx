@@ -15,22 +15,19 @@ declare global {
 
 export function VSL({
   videoId,
-  unlockAt,
   onUnlock,
   className,
   children,
-}: VSLProps & { children?: React.ReactNode }) {
+}: Omit<VSLProps, "unlockAt"> & { children?: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState(false);
 
   const playerRef = useRef<YT.Player | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const loadAPI = () => {
       if (window.YT && window.YT.Player) {
         initPlayer();
-
         return;
       }
 
@@ -55,32 +52,16 @@ export function VSL({
           modestbranding: 1,
         },
         events: {
-          onStateChange: (event) => {
-            if (event.data === window.YT.PlayerState.PLAYING) {
-              intervalRef.current = setInterval(() => {
-                const current = playerRef.current?.getCurrentTime() ?? 0;
-
-                if (current >= unlockAt) {
-                  setUnlocked(true);
-                  onUnlock?.();
-
-                  if (intervalRef.current) clearInterval(intervalRef.current);
-                }
-              }, 1000);
-            } else {
-              if (intervalRef.current) clearInterval(intervalRef.current);
-            }
+          onReady: () => {
+            setUnlocked(true);
+            onUnlock?.();
           },
         },
       });
     };
 
     loadAPI();
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [videoId, unlockAt, onUnlock]);
+  }, [videoId, onUnlock]);
 
   return (
     <section
@@ -91,21 +72,14 @@ export function VSL({
       )}
     >
       <div
-        className="w-full max-w-308 overflow-hidden rounded-xl sm:px-8"
+        className="w-full max-w-308 sm:overflow-hidden sm:rounded-xl sm:px-8"
         style={{ aspectRatio: "16/9" }}
       >
         <div ref={containerRef} className="h-full w-full" />
       </div>
 
       {unlocked && (
-        <div
-          className={twMerge(
-            "flex w-full flex-col items-center transition-all duration-700",
-            unlocked
-              ? "pointer-events-auto translate-y-0 opacity-100"
-              : "pointer-events-none translate-y-4 opacity-0"
-          )}
-        >
+        <div className="pointer-events-auto flex w-full translate-y-0 flex-col items-center opacity-100 transition-all duration-700">
           {children}
         </div>
       )}

@@ -2,18 +2,18 @@ import { PageType } from "@/types";
 
 export const page: PageType = {
   zero: {
+    description: "De <span>R$397</span> por R$129,90",
+    cta: "Inscreva-se agora",
+    conditionTextTimer: "*O valor atual pode sair do ar em",
+    conditionText: "*O valor atual pode ser atualizado a qualquer momento",
+  },
+
+  one: {
     headline: {
       html: "Aprenda a gerir sua empresa com <strong>método, clareza e controle</strong>",
     },
     description:
       "Desenvolva a mentalidade e as ferramentas de gestão para gerir com mais confiança, aumentar seu lucro e recuperar sua liberdade como empresário.",
-  },
-
-  one: {
-    description: "De <span>R$397</span> por R$129,90",
-    cta: "Inscreva-se agora",
-    conditionTextTimer: "*O valor atual pode sair do ar em",
-    conditionText: "*O valor atual pode ser atualizado a qualquer momento",
   },
 
   two: {

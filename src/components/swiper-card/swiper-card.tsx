@@ -41,17 +41,17 @@ export function SwiperCard({ items, className }: SwiperCardProps) {
         {loopedItems.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="group relative cursor-grab overflow-hidden rounded-md">
-              <Image
-                src={item.imageUrl}
-                alt="Imagem"
-                width={280}
-                height={280}
-                className="pointer-events-none w-full object-cover object-top transition-transform duration-700 select-none group-hover:scale-105"
-              />
+              <div className="overflow-hidden">
+                <Image
+                  src={item.imageUrl}
+                  alt="Imagem"
+                  width={280}
+                  height={280}
+                  className="pointer-events-none w-full object-cover object-top transition-transform duration-700 select-none group-hover:scale-105"
+                />
+              </div>
 
-              {/* <div className="absolute bottom-0 z-10 h-1/2 w-full bg-linear-to-b to-black opacity-0 transition-opacity group-hover:opacity-100" /> */}
-
-              <div className="z-20 flex flex-col gap-1 bg-neutral-900 p-[3.5vw] md:p-[2.75vw] lg:p-[2vw] xl:p-[1.75vw] 2xl:p-[1.5vw]">
+              <div className="z-20 flex h-32 flex-col gap-1 bg-neutral-900 p-[3.5vw] md:p-[2.75vw] lg:p-[2vw] xl:p-[1.75vw] 2xl:p-[1.5vw]">
                 <h4 className="font-medium">{item.description}</h4>
               </div>
             </div>
