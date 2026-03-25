@@ -59,6 +59,10 @@ export type PageType = {
   };
 
   five: {
+    marqueeText: string;
+  };
+
+  six: {
     title: string;
     description: string;
     bullets: {
@@ -67,10 +71,6 @@ export type PageType = {
       items: readonly string[];
     };
     cta: string;
-  };
-
-  six: {
-    marqueeText: string;
   };
 
   seven: {

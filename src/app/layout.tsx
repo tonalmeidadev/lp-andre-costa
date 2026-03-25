@@ -4,6 +4,7 @@ import { Metadata } from "next";
 
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,6 +22,20 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${montserrat.variable} antialiased`}>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+          `}
+        </Script>
+      </head>
       <body className="relative">
         {children}
 

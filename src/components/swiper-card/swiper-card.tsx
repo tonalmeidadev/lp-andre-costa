@@ -10,6 +10,8 @@ import { twMerge } from "tailwind-merge";
 import "swiper/css";
 import Image from "next/image";
 
+import { trackEvent } from "@/utils/track-event";
+
 import type { SwiperCardProps } from "./types";
 
 export function SwiperCard({ items, className }: SwiperCardProps) {
@@ -25,6 +27,9 @@ export function SwiperCard({ items, className }: SwiperCardProps) {
         loop
         centeredSlides
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={() =>
+          trackEvent("carousel_slide", { location: "modulos_carousel" })
+        }
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         spaceBetween={24}

@@ -19,7 +19,6 @@ export const page: PageType = {
   two: {
     vsl: {
       videoId: "Esb5DeSuysw",
-      unlockAt: 5,
     },
   },
 
@@ -39,6 +38,10 @@ export const page: PageType = {
   },
 
   five: {
+    marqueeText: "Reset Empreendedor",
+  },
+
+  six: {
     title: "Muitos empreendedores não quebram por falta de venda.",
     description:
       "Quebram porque não controlam caixa, não entendem margem, misturam dinheiro da empresa com dinheiro pessoal, precificam no chute e tomam decisões sem dados.",
@@ -54,10 +57,6 @@ export const page: PageType = {
       ],
     },
     cta: "Quero sair do achismo",
-  },
-
-  six: {
-    marqueeText: "Reset Empreendedor",
   },
 
   seven: {

@@ -10,6 +10,8 @@ import { twMerge } from "tailwind-merge";
 
 import "swiper/css";
 
+import { trackEvent } from "@/utils/track-event";
+
 import type { TestimonialCarouselProps } from "./types";
 
 export function TestimonialCarousel({
@@ -29,6 +31,9 @@ export function TestimonialCarousel({
         centeredSlides
         modules={[Autoplay]}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={() =>
+          trackEvent("carousel_slide", { location: "testimonials_carousel" })
+        }
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         slidesPerView={1.08}
         spaceBetween={24}

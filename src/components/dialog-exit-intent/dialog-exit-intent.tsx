@@ -6,11 +6,12 @@ import { XIcon } from "@phosphor-icons/react/dist/ssr";
 import * as Dialog from "@radix-ui/react-dialog";
 
 import { ButtonSecure } from "@/components/button-secure/button-secure";
+import { trackEvent } from "@/utils/track-event";
 
-import { ExitIntentModalProps } from "./types";
+import { DialogExitIntentProps } from "./types";
 import { CountdownTimer } from "../countdown-timer/countdown-timer";
 
-export function ExitIntentModal({ ctaPathname }: ExitIntentModalProps) {
+export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
   const [open, setOpen] = useState(false);
   const triggered = useRef(false);
 
@@ -31,9 +32,18 @@ export function ExitIntentModal({ ctaPathname }: ExitIntentModalProps) {
   }, []);
 
   return (
-    <Dialog.Root open={open} onOpenChange={(value) => setOpen(value)}>
+    <Dialog.Root
+      open={open}
+      onOpenChange={(value) => {
+        if (value) trackEvent("exit_intent_open", { location: "exit_intent" });
+        if (!value)
+          trackEvent("exit_intent_close", { location: "close_modal" });
+        setOpen(value);
+      }}
+    >
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" />
+
         <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-neutral-800 bg-[#100E10] p-8 shadow-2xl shadow-black/60 focus:outline-none">
           <Dialog.Close asChild>
             <button className="absolute top-4 right-4 cursor-pointer rounded-full p-1.5 text-neutral-500 transition-colors hover:text-neutral-200">
@@ -87,6 +97,12 @@ export function ExitIntentModal({ ctaPathname }: ExitIntentModalProps) {
           <ButtonSecure
             text="Quero garantir minha vaga agora"
             pathname={ctaPathname}
+            onClick={() =>
+              trackEvent("click_cta", {
+                button_name: "Quero garantir minha vaga agora",
+                location: "cta_modal",
+              })
+            }
           />
         </Dialog.Content>
       </Dialog.Portal>

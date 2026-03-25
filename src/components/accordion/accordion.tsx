@@ -4,6 +4,8 @@ import { MinusIcon, PlusIcon } from "@phosphor-icons/react/dist/ssr";
 import * as RadixAccordion from "@radix-ui/react-accordion";
 import { twMerge } from "tailwind-merge";
 
+import { trackEvent } from "@/utils/track-event";
+
 import type { AccordionProps } from "./types";
 
 export function Accordion({ items, className }: AccordionProps) {
@@ -13,6 +15,15 @@ export function Accordion({ items, className }: AccordionProps) {
       type="single"
       defaultValue="item-0"
       className={twMerge("w-full", className)}
+      onValueChange={(value) => {
+        if (value) {
+          const index = parseInt(value.replace("item-", ""));
+          trackEvent("accordion_open", {
+            question: items[index]?.question,
+            location: "faq",
+          });
+        }
+      }}
     >
       {items.map((item, index) => (
         <RadixAccordion.Item

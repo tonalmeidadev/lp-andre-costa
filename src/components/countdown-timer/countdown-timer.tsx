@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import { twMerge } from "tailwind-merge";
 
+import { trackEvent } from "@/utils/track-event";
+
 import type { CountdownTimerProps } from "./types";
 
 const STORAGE_KEY = "countdown_expires_at";
@@ -98,7 +100,7 @@ export function CountdownTimer({
       if (tl.done) {
         localStorage.setItem(EXPIRED_KEY, "true");
         localStorage.removeItem(STORAGE_KEY);
-
+        trackEvent("countdown_expired");
         clearInterval(interval);
       }
     }, 1000);

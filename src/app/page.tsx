@@ -13,13 +13,14 @@ import { Blocks } from "@/components/blocks/blocks";
 import { BulletPoints } from "@/components/bullet-points/bullet-points";
 import { ButtonSecure } from "@/components/button-secure/button-secure";
 import { CountdownTimer } from "@/components/countdown-timer/countdown-timer";
-import { ExitIntentModal } from "@/components/exit-intent-modal/exit-intent-modal";
+import { DialogExitIntent } from "@/components/dialog-exit-intent/dialog-exit-intent";
 import { Hero } from "@/components/hero/hero";
 import { Marquee } from "@/components/marquee/marquee";
 import { SwiperCard } from "@/components/swiper-card/swiper-card";
 import { TestimonialCarousel } from "@/components/testimonial/testimonial";
 import { VSL } from "@/components/vsl/vsl";
 import { page } from "@/constants/page";
+import { trackEvent } from "@/utils/track-event";
 
 export default function HomePage() {
   const [compact, setCompact] = useState(false);
@@ -69,9 +70,86 @@ export default function HomePage() {
     };
   }, []);
 
+  useEffect(() => {
+    const checkpoints = [25, 50, 75, 100];
+    const reached = new Set<number>();
+
+    const handleScroll = () => {
+      const scrolled =
+        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+        100;
+
+      checkpoints.forEach((point) => {
+        if (scrolled >= point && !reached.has(point)) {
+          reached.add(point);
+          trackEvent("scroll_depth", { depth: point, location: `${point}%` });
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Tempo na página
+  useEffect(() => {
+    const start = Date.now();
+    const checkpoints = [30, 60, 120, 300]; // segundos
+    const reached = new Set<number>();
+
+    const interval = setInterval(() => {
+      const seconds = Math.floor((Date.now() - start) / 1000);
+
+      checkpoints.forEach((point) => {
+        if (seconds >= point && !reached.has(point)) {
+          reached.add(point);
+          trackEvent("time_on_page", { seconds: point });
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const clicks: { x: number; y: number; time: number }[] = [];
+
+    const handleClick = (e: MouseEvent) => {
+      const now = Date.now();
+      clicks.push({ x: e.clientX, y: e.clientY, time: now });
+
+      const recent = clicks.filter((c) => now - c.time < 2000);
+      const nearby = recent.filter(
+        (c) => Math.abs(c.x - e.clientX) < 30 && Math.abs(c.y - e.clientY) < 30
+      );
+
+      if (nearby.length >= 3) {
+        trackEvent("rage_click", {
+          location: (e.target as HTMLElement)?.tagName?.toLowerCase(),
+          x: Math.round(e.clientX),
+          y: Math.round(e.clientY),
+        });
+        clicks.length = 0;
+      }
+    };
+
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, []);
+
+  useEffect(() => {
+    const key = "page_visit_count";
+    const count = parseInt(localStorage.getItem(key) ?? "0", 10) + 1;
+    localStorage.setItem(key, String(count));
+
+    if (count > 1) {
+      trackEvent("page_return", { times_returned: count });
+    }
+  }, []);
+
   return (
     <main className="flex flex-col items-center">
-      <section className="fixed top-0 right-0 left-0 z-50 flex w-dvw justify-center bg-[#100E10] shadow-2xl shadow-[#100E10]">
+      <header className="fixed top-0 right-0 left-0 z-50 flex w-dvw justify-center bg-[#100E10] shadow-2xl shadow-[#100E10]">
         <div
           className={twMerge(
             "flex w-full max-w-300 flex-col items-center justify-center gap-4 px-4 transition-all sm:flex-row",
@@ -94,6 +172,12 @@ export default function HomePage() {
               <Link
                 href={ctaPathname}
                 className="flex items-center gap-1 text-[#67A4EE] underline"
+                onClick={() =>
+                  trackEvent("click_cta", {
+                    button_name: page.zero.cta,
+                    location: "cta_fixo",
+                  })
+                }
               >
                 <span className="font-semibold">{page.zero.cta}</span>
                 <ArrowUpRightIcon weight="bold" />
@@ -103,18 +187,20 @@ export default function HomePage() {
             <span className="flex items-center gap-1 text-sm font-semibold text-neutral-400">
               <span className="hidden sm:block">{page.zero.conditionText}</span>
               <span className="sm:hidden">{page.zero.conditionTextTimer} </span>
+
               <CountdownTimer
                 variant="text"
                 duration={1052}
                 className="sm:hidden"
               />
+
               <span className="sm:hidden">minutos</span>
             </span>
           </div>
 
           <CountdownTimer duration={1052} className="hidden! sm:flex!" />
         </div>
-      </section>
+      </header>
 
       <section
         className={twMerge(
@@ -147,7 +233,16 @@ export default function HomePage() {
           {page.three.subdescription}
         </h3>
 
-        <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
+        <ButtonSecure
+          text={page.three.cta}
+          pathname={ctaPathname}
+          onClick={() =>
+            trackEvent("click_cta", {
+              button_name: page.three.cta,
+              location: "cta_abaixo_vsl",
+            })
+          }
+        />
       </section>
 
       <Hero
@@ -155,38 +250,32 @@ export default function HomePage() {
         description={page.four.description}
       />
 
-      <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
-        <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
-          <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
-          <span className="text-sm font-semibold text-[#FF4848] uppercase">
-            {page.three.ctaRed}
-          </span>
-        </div>
-
-        <h2 className="text-center text-2xl font-semibold">
-          {page.three.subdescription}
-        </h2>
-
-        <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
-      </section>
-
-      <Marquee text={page.six.marqueeText} />
+      <Marquee text={page.five.marqueeText} />
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
         <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-          {page.five.title}
+          {page.six.title}
         </h2>
 
-        <span className="mb-6 text-center">{page.five.description}</span>
+        <span className="mb-6 text-center">{page.six.description}</span>
 
         <BulletPoints
-          itemsPerColumn={page.five.bullets.itemsPerColumn}
-          variant={page.five.bullets.variant}
-          items={page.five.bullets.items}
+          itemsPerColumn={page.six.bullets.itemsPerColumn}
+          variant={page.six.bullets.variant}
+          items={page.six.bullets.items}
           className="mb-12"
         />
 
-        <ButtonSecure text={page.five.cta} pathname={ctaPathname} />
+        <ButtonSecure
+          text={page.six.cta}
+          pathname={ctaPathname}
+          onClick={() =>
+            trackEvent("click_cta", {
+              button_name: page.six.cta,
+              location: "cta_abaixo_hero",
+            })
+          }
+        />
       </section>
 
       <section className="flex h-fit w-full flex-col items-center py-8 md:py-16">
@@ -252,7 +341,16 @@ export default function HomePage() {
             </span>
           </div>
 
-          <ButtonSecure text={page.eight.cta} pathname={ctaPathname} />
+          <ButtonSecure
+            text={page.eight.cta}
+            pathname={ctaPathname}
+            onClick={() =>
+              trackEvent("click_cta", {
+                button_name: page.eight.cta,
+                location: "cta_abaixo_banner_amarelo",
+              })
+            }
+          />
         </div>
       </section>
 
@@ -292,7 +390,16 @@ export default function HomePage() {
           </div>
         ))}
 
-        <ButtonSecure text={page.ten.cta} pathname={ctaPathname} />
+        <ButtonSecure
+          text={page.ten.cta}
+          pathname={ctaPathname}
+          onClick={() =>
+            trackEvent("click_cta", {
+              button_name: page.ten.cta,
+              location: "cta_acima_bio",
+            })
+          }
+        />
       </section>
 
       <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
@@ -342,7 +449,16 @@ export default function HomePage() {
             </span>
           </div>
 
-          <ButtonSecure text={page.twelve.cta} pathname={ctaPathname} />
+          <ButtonSecure
+            text={page.twelve.cta}
+            pathname={ctaPathname}
+            onClick={() =>
+              trackEvent("click_cta", {
+                button_name: page.twelve.cta,
+                location: "cta_ultimo_abaixo_bio",
+              })
+            }
+          />
         </div>
       </section>
 
@@ -354,7 +470,7 @@ export default function HomePage() {
         <Accordion items={page.thirteen.faq.items} />
       </section>
 
-      <ExitIntentModal ctaPathname={ctaPathname} />
+      <DialogExitIntent ctaPathname={ctaPathname} />
     </main>
   );
 }
