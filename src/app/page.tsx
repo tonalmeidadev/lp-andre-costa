@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center">
       {!unlocked && (
-        <section className="flex w-full max-w-240 flex-col items-center gap-4 px-8 py-8">
+        <section className="flex w-full max-w-240 flex-col items-center gap-4 p-8">
           <h1
             dangerouslySetInnerHTML={{ __html: page.zero.headline.html }}
             className={twMerge(
@@ -96,7 +96,9 @@ export default function HomePage() {
             description={page.four.description}
           />
 
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-16">
+          <Marquee text={page.six.marqueeText} />
+
+          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
             <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
               {page.five.title}
             </h2>
@@ -113,9 +115,7 @@ export default function HomePage() {
             <ButtonSecure text={page.five.cta} />
           </section>
 
-          <Marquee text={page.six.marqueeText} />
-
-          <section className="flex w-full flex-col items-center py-16">
+          <section className="flex w-full flex-col items-center py-8 md:py-16">
             <div className="flex max-w-240 flex-col px-8">
               <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
                 {page.seven.title}
@@ -136,7 +136,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-16">
+          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
             <h2 className="mb-12 text-center text-4xl font-medium -tracking-wide">
               {page.eight.title}
             </h2>
@@ -182,7 +182,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="flex w-full max-w-300 flex-col items-center px-8 py-16">
+          <section className="flex w-full max-w-300 flex-col items-center px-8 py-8 md:py-16">
             <div className="grid w-full grid-cols-2 items-center gap-8">
               <h2 className="mb-12 max-w-100 text-4xl font-medium -tracking-wide">
                 {page.nine.title}
@@ -194,7 +194,7 @@ export default function HomePage() {
             <TestimonialCarousel items={page.nine.testimonials.cards.items} />
           </section>
 
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-16">
+          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
             <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
               {page.ten.title}
             </h2>
@@ -219,7 +219,7 @@ export default function HomePage() {
             <ButtonSecure text={page.ten.cta} />
           </section>
 
-          <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-16">
+          <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
             <Image
               src={page.eleven.biography.backgroundUrl}
               alt="Foto de André Costa"
@@ -237,7 +237,7 @@ export default function HomePage() {
                 alt="Imagem"
                 width={438}
                 height={572}
-                className="pointer-events-none size-80 shrink-0 rounded-full object-cover object-top-right select-none xxs:size-100 lg:order-1 lg:size-[inherit] lg:h-142 lg:w-108 lg:rounded-lg"
+                className="pointer-events-none size-80 shrink-0 rounded-full object-cover object-top-right select-none xs:size-100 lg:order-1 lg:size-[inherit] lg:h-142 lg:w-108 lg:rounded-lg"
               />
 
               <div className="flex flex-col items-center gap-4 lg:items-start">
@@ -270,7 +270,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="flex w-full max-w-240 flex-col items-center px-8 py-16">
+          <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
             <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
               Perguntas frequentes
             </h2>
