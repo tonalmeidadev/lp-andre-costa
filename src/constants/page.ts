@@ -302,6 +302,7 @@ export const page: PageType = {
       "As inscrições fecham em breve. Após o encerramento, o valor volta ao preço padrão — ou as vagas podem ser suspensas sem aviso. Não deixe para amanhã.",
     pathname: "www.google.com",
     targetBlank: true,
+    cta: "Garantir minha vaga agora",
   },
 
   thirteen: {

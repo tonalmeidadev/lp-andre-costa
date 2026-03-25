@@ -130,6 +130,7 @@ export type PageType = {
     description: string;
     pathname: string;
     targetBlank: boolean;
+    cta: string;
   };
 
   thirteen: {

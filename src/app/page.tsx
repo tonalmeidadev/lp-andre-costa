@@ -266,7 +266,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <ButtonSecure text="Garantir minha vaga agora" />
+              <ButtonSecure text={page.twelve.cta} />
             </div>
           </section>
 
