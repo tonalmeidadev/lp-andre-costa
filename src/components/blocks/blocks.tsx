@@ -16,12 +16,15 @@ export function Blocks({ itemsPerColumn, items, className }: BlocksProps) {
   return (
     <div
       className={twMerge(
-        "grid w-full grid-cols-1 gap-6 md:grid-cols-2",
+        "grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-6",
         className
       )}
     >
       {columns.map((column, colIndex) => (
-        <ul key={colIndex} className="m-0 flex list-none flex-col gap-6 p-0">
+        <ul
+          key={colIndex}
+          className="m-0 flex list-none flex-col gap-2 p-0 md:gap-3"
+        >
           {column.map((text, itemIndex) => (
             <li
               key={itemIndex}
