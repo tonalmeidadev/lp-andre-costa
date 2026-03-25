@@ -134,15 +134,15 @@ export const page: PageType = {
       title: "Você vai aprender, de forma simples e prática, a:",
       items: [
         {
-          bullets: {
+          blocks: {
             itemsPerColumn: 3,
             items: [
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
+              "Acesso ao treinamento completo",
+              "12 módulos práticas e objetivos",
+              "40 aulas",
+              "4 horas",
+              "Conteúdo simples para aplicar no pequeno negócio",
+              "Acesso imediato após a confirmação",
             ],
           },
         },
@@ -154,9 +154,9 @@ export const page: PageType = {
   },
 
   nine: {
-    title: "Trusted by +10k customers",
+    title: "Resultados reais de empresários como você",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Depoimentos de empresários que saíram do achismo para o lucro",
     testimonials: {
       cards: {
         items: [
@@ -241,59 +241,6 @@ export const page: PageType = {
         html: "<p>André Costa é empresário, mentor e executivo com uma trajetória construída na prática, unindo gestão, estratégia e desenvolvimento humano.</p><br/><p><p>Nascido em Cuiabá, é formado em Administração de Empresas, com pós-graduação em Desenvolvimento Humano para Gestores pela Fundação Getulio Vargas, formação em Global Business Management pelo IBMEC e certificação em M&A pela Columbia University, em Nova York.</p><br/><p>Iniciou sua carreira na Coca-Cola, mas foi no setor farmacêutico que consolidou sua história, acumulando quase duas décadas de experiência e cofundando uma das maiores companhias do segmento.</p><br/><p>Ao longo dessa jornada, André desenvolveu uma visão clara: negócios crescem de verdade quando unem resultado, estrutura e pessoas. Mais do que títulos ou cargos, acredita na construção de ambientes em que empresas possam prosperar e pessoas possam florescer com propósito.</p><br/><p>Casado com Júlia e pai da Liz, leva para sua atuação a mesma convicção que guia sua vida: crescimento consistente não acontece por acaso, mas por direção, coragem e consciência.</p>",
       },
     },
-
-    title: "Faça agora o seu Reset Empreendedor",
-    bullets: [
-      {
-        bullets: {
-          itemsPerColumn: 4,
-          variant: "check" as const,
-          items: [
-            "Entender o fluxo de caixa",
-            "Separar faturamento de lucro",
-            "Formar preço com lógica",
-            "Identificar custos fixos e variáveis",
-            "Proteger capital de giro",
-            "Evitar dinheiro parado em estoque",
-            "Analisar números para decidir melhor",
-            "Usar marketing para atrair clientes",
-          ],
-        },
-      },
-      {
-        description:
-          "Além do treinamento, você pode adquirir também modelos práticos para aplicar hoje no seu negócio.",
-        bullets: {
-          itemsPerColumn: 2,
-          variant: "check" as const,
-          items: [
-            "Planilha simples de fluxo de caixa",
-            "Calculadora de precificação",
-            "Calculadora de precificação",
-            "Roteiro semanal de acompanhamento de números",
-          ],
-        },
-      },
-    ],
-    blocks: {
-      title: "Você vai aprender, de forma simples e prática, a:",
-      items: [
-        {
-          bullets: {
-            itemsPerColumn: 3,
-            items: [
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-              "Entender o fluxo de caixa",
-            ],
-          },
-        },
-      ],
-    },
-    cta: "Quero ter acesso ao treinamento",
   },
 
   twelve: {

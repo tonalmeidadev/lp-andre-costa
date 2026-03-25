@@ -12,7 +12,7 @@ export type BulletSection = {
 };
 
 export type BlockSection = {
-  bullets: {
+  blocks: {
     itemsPerColumn: number;
     items: readonly string[];
   };
@@ -116,13 +116,6 @@ export type PageType = {
       photoUrl: string;
       bio: { html: string };
     };
-    title: string;
-    bullets: BulletSection[];
-    blocks: {
-      title: string;
-      items: BlockSection[];
-    };
-    cta: string;
   };
 
   twelve: {

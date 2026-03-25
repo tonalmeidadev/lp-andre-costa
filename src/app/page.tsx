@@ -163,8 +163,8 @@ export default function HomePage() {
             {page.eight.blocks.items.map((item, index) => (
               <div key={index} className="flex w-full flex-col gap-6">
                 <Blocks
-                  itemsPerColumn={item.bullets.itemsPerColumn}
-                  items={item.bullets.items}
+                  itemsPerColumn={item.blocks.itemsPerColumn}
+                  items={item.blocks.items}
                   className="mb-12"
                 />
               </div>
@@ -183,12 +183,14 @@ export default function HomePage() {
           </section>
 
           <section className="flex w-full max-w-300 flex-col items-center px-8 py-8 md:py-16">
-            <div className="grid w-full grid-cols-2 items-center gap-8">
-              <h2 className="mb-12 max-w-100 text-4xl font-medium -tracking-wide">
+            <div className="mb-12 grid w-full grid-cols-1 items-center gap-8 sm:grid-cols-2">
+              <h2 className="text-center text-4xl font-medium -tracking-wide sm:max-w-100 sm:text-start">
                 {page.nine.title}
               </h2>
 
-              <span className="mb-6">{page.nine.description}</span>
+              <span className="w-full text-center sm:max-w-80 sm:text-start">
+                {page.nine.description}
+              </span>
             </div>
 
             <TestimonialCarousel items={page.nine.testimonials.cards.items} />
