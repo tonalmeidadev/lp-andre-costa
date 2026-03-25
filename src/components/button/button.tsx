@@ -10,7 +10,7 @@ const button = tv({
   variants: {
     size: {
       sm: "text-xs font-semibold py-2.5 px-6 rounded-md hover:scale-105",
-      base: "font-bold py-6 px-11 rounded-md shadow-xl hover:scale-110",
+      base: "text-sm font-bold py-4 px-8 rounded-md shadow-xl hover:scale-110 lg:text-base lg:py-6 lg:px-11",
     },
   },
   defaultVariants: { size: "base" },
