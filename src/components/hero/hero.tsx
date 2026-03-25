@@ -32,7 +32,7 @@ export function Hero({ headline, description }: HeroProps) {
           className={twMerge(
             "text-center text-4xl font-medium",
             "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
-            "[&>strong]:bg-clip-text [&>strong]:text-transparent"
+            "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
           )}
         />
 
