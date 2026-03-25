@@ -6,7 +6,7 @@ import type { HeroProps } from "./types";
 
 export function Hero({ headline, description }: HeroProps) {
   return (
-    <section className="relative flex h-220 w-full items-end justify-center overflow-hidden xxs:h-230 xs:h-240">
+    <section className="relative mt-20 flex h-220 w-full items-end justify-center overflow-hidden xxs:h-230 xs:h-240">
       <Image
         src="/assets/background.webp"
         alt="Imagem"

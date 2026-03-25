@@ -28,7 +28,7 @@ export function Blocks({ itemsPerColumn, items, className }: BlocksProps) {
           {column.map((text, itemIndex) => (
             <li
               key={itemIndex}
-              className="flex h-20 w-full items-center gap-3 rounded-[0.625rem] border border-blue-500/30 bg-[#2358F507] px-6 shadow-2xl shadow-blue-500/10"
+              className="flex h-20 w-full items-center gap-3 rounded-[0.625rem] border-2 border-cyan-500/30 bg-cyan-500/5 px-6 shadow-2xl shadow-cyan-500/5"
             >
               <span className="w-full text-center font-semibold">{text}</span>
             </li>

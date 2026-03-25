@@ -51,7 +51,7 @@ export function VSL({
         playerVars: {
           rel: 0,
           controls: 0,
-          autoplay: 0,
+          autoplay: 1,
           modestbranding: 1,
         },
         events: {

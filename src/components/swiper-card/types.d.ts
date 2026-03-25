@@ -1,8 +1,9 @@
 export type SwiperCardItem = {
-  title: string;
+  imageUrl: string;
   description: string;
 };
 
 export type SwiperCardProps = {
+  className?: string;
   items: readonly SwiperCardItem[];
 };

@@ -35,6 +35,7 @@ export type PageType = {
 
   one: {
     conditionText: string;
+    conditionTextTimer: string;
     description: string;
     cta: string;
   };

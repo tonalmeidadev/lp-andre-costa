@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+// import { twMerge } from "tailwind-merge";
 
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { twMerge } from "tailwind-merge";
@@ -12,62 +15,134 @@ import { Accordion } from "@/components/accordion/accordion";
 import { Blocks } from "@/components/blocks/blocks";
 import { BulletPoints } from "@/components/bullet-points/bullet-points";
 import { ButtonSecure } from "@/components/button-secure/button-secure";
+import { CountdownTimer } from "@/components/countdown-timer/countdown-timer";
+import { ExitIntentModal } from "@/components/exit-intent-modal/exit-intent-modal";
 import { Hero } from "@/components/hero/hero";
 import { Marquee } from "@/components/marquee/marquee";
-import SwiperCard from "@/components/swiper-card/swiper-card";
+import { SwiperCard } from "@/components/swiper-card/swiper-card";
 import { TestimonialCarousel } from "@/components/testimonial/testimonial";
 import { VSL } from "@/components/vsl/vsl";
 import { page } from "@/constants/page";
 
 export default function HomePage() {
-  const [unlocked, setUnlocked] = useState(false);
+  const [_, setUnlocked] = useState(true);
+  const [compact, setCompact] = useState(false);
+
+  const unlocked = true;
+  const ctaPathname = "https://www.google.com";
+
+  useEffect(() => {
+    const handleScroll = () => setCompact(window.scrollY > 20);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const messages = [
+      "Oferta exclusiva por tempo limitado…",
+      "André Costa — Reset Empreendedor",
+    ];
+
+    let index = 0;
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    const original = document.title;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        interval = setInterval(() => {
+          document.title = messages[index % messages.length];
+          index++;
+        }, 2000);
+      } else {
+        if (interval) clearInterval(interval);
+        document.title = original;
+        index = 0;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+
+      if (interval) clearInterval(interval);
+
+      document.title = original;
+    };
+  }, []);
 
   return (
     <main className="flex flex-col items-center">
-      {!unlocked && (
-        <section className="flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-16 pb-8">
-          <h1
-            dangerouslySetInnerHTML={{ __html: page.zero.headline.html }}
-            className={twMerge(
-              "text-center text-4xl font-medium",
-              "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
-              "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
-            )}
-          />
+      {/* {!unlocked && ( */}
+      <section className="mt-20 flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-16 pb-8">
+        <h1
+          dangerouslySetInnerHTML={{ __html: page.zero.headline.html }}
+          className={twMerge(
+            "text-center text-4xl font-medium",
+            "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
+            "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
+          )}
+        />
 
-          <span className="text-center">{page.zero.description}</span>
-        </section>
-      )}
+        <span className="text-center">{page.zero.description}</span>
+      </section>
+      {/* )} */}
 
       {unlocked && (
-        <section className="flex w-full max-w-300 flex-col items-center gap-4 px-8 py-8">
-          <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-4">
-            <div className="flex items-center gap-2.5">
-              <div className="size-2.5 animate-pulse rounded-full bg-red-500" />
-              <span className="font-semibold uppercase">
-                {page.one.conditionText}
+        <section className="fixed top-0 right-0 left-0 z-50 flex w-dvw justify-center bg-[#100E10] shadow-2xl shadow-[#100E10]">
+          <div
+            className={twMerge(
+              "flex w-full max-w-300 flex-col items-center justify-center gap-4 px-4 transition-all sm:flex-row",
+              compact ? "py-4" : "py-8"
+            )}
+          >
+            <div className="flex flex-col items-center gap-2">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="size-2.5 animate-pulse rounded-full bg-red-500" />
+
+                  <span
+                    className="text-center font-semibold uppercase sm:text-start [&>span]:line-through"
+                    dangerouslySetInnerHTML={{ __html: page.one.description }}
+                  />
+                </div>
+
+                <span className="hidden sm:block">—</span>
+
+                <Link
+                  href={ctaPathname}
+                  className="flex items-center gap-1 text-[#67A4EE] underline"
+                >
+                  <span className="font-semibold">{page.one.cta}</span>
+                  <ArrowUpRightIcon weight="bold" />
+                </Link>
+              </div>
+
+              <span className="flex items-center gap-1 text-sm font-semibold text-neutral-400">
+                <span className="hidden sm:block">
+                  {page.one.conditionText}
+                </span>
+                <span className="sm:hidden">
+                  {page.one.conditionTextTimer}{" "}
+                </span>
+                <CountdownTimer
+                  variant="text"
+                  duration={1052}
+                  className="sm:hidden"
+                />
+                <span className="sm:hidden">minutos</span>
               </span>
             </div>
 
-            <div className="flex flex-col items-center gap-1 sm:flex-row">
-              <span className="text-center sm:text-start">
-                {page.one.description}
-              </span>
-
-              <span className="hidden sm:block">—</span>
-
-              <Link
-                href="/"
-                className="flex items-center gap-1 text-[#67A4EE] underline"
-              >
-                <span>{page.one.cta}</span>
-                <ArrowUpRightIcon />
-              </Link>
-            </div>
+            <CountdownTimer duration={1052} className="hidden! sm:flex!" />
           </div>
         </section>
       )}
 
+      {/* Temporário - descomentar sessão abaixo quando habilitar VSL */}
       <VSL
         videoId={page.two.vsl.videoId}
         unlockAt={page.two.vsl.unlockAt}
@@ -76,6 +151,7 @@ export default function HomePage() {
 
       {unlocked && (
         <>
+          {/* Temporário - descomentar sessão abaixo quando habilitar VSL */}
           <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
             <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
               <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
@@ -88,13 +164,29 @@ export default function HomePage() {
               {page.three.subdescription}
             </h3>
 
-            <ButtonSecure text={page.three.cta} />
+            <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
           </section>
 
           <Hero
             headline={page.four.headline.html}
             description={page.four.description}
           />
+
+          {/* Temporário - remover sessão abaixo quando habilitar VSL */}
+          <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
+            <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
+              <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
+              <span className="text-sm font-semibold text-[#FF4848] uppercase">
+                {page.three.ctaRed}
+              </span>
+            </div>
+
+            <h2 className="text-center text-2xl font-semibold">
+              {page.three.subdescription}
+            </h2>
+
+            <ButtonSecure text={page.three.cta} pathname={ctaPathname} />
+          </section>
 
           <Marquee text={page.six.marqueeText} />
 
@@ -112,11 +204,11 @@ export default function HomePage() {
               className="mb-12"
             />
 
-            <ButtonSecure text={page.five.cta} />
+            <ButtonSecure text={page.five.cta} pathname={ctaPathname} />
           </section>
 
           <section className="flex w-full flex-col items-center py-8 md:py-16">
-            <div className="flex max-w-240 flex-col px-8">
+            <div className="flex w-full max-w-240 flex-col px-8">
               <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
                 {page.seven.title}
               </h2>
@@ -131,7 +223,7 @@ export default function HomePage() {
               </h3>
             </div>
 
-            <div className="mt-12 flex w-full max-w-300 flex-col px-8">
+            <div className="mt-12 flex h-fit w-full flex-col px-8">
               <SwiperCard items={page.seven.cards.items} />
             </div>
           </section>
@@ -171,14 +263,14 @@ export default function HomePage() {
             ))}
 
             <div className="flex w-full max-w-240 flex-col">
-              <div className="mb-6 flex items-center gap-4 rounded-[0.625rem] border border-[#F5A62325] bg-[#F5A62307] px-6 py-4">
-                <span className="text-2xl text-[#F5A623]">⚡</span>
-                <span className="font-semibold text-[#F5A623]">
+              <div className="mb-6 flex items-center gap-4 rounded-[0.625rem] border border-amber-400/25 bg-amber-400/5 px-6 py-4 shadow-2xl shadow-amber-400/10">
+                <span className="text-2xl">⚡</span>
+                <span className="font-semibold text-amber-500">
                   {page.eight.ctaCard}
                 </span>
               </div>
 
-              <ButtonSecure text={page.eight.cta} />
+              <ButtonSecure text={page.eight.cta} pathname={ctaPathname} />
             </div>
           </section>
 
@@ -218,7 +310,7 @@ export default function HomePage() {
               </div>
             ))}
 
-            <ButtonSecure text={page.ten.cta} />
+            <ButtonSecure text={page.ten.cta} pathname={ctaPathname} />
           </section>
 
           <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
@@ -268,7 +360,7 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <ButtonSecure text={page.twelve.cta} />
+              <ButtonSecure text={page.twelve.cta} pathname={ctaPathname} />
             </div>
           </section>
 
@@ -281,6 +373,8 @@ export default function HomePage() {
           </section>
         </>
       )}
+
+      {/* <ExitIntentModal ctaPathname={ctaPathname} /> */}
     </main>
   );
 }

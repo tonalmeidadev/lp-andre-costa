@@ -3,16 +3,17 @@ import { PageType } from "@/types";
 export const page: PageType = {
   zero: {
     headline: {
-      html: "Destrave o próximo nível do seu negócio com estratégia, <strong>gestão e execução de verdade</strong>",
+      html: "Aprenda a gerir sua empresa com <strong>método, clareza e controle</strong>",
     },
     description:
-      "Um programa de mentoria criado para empresários que querem sair da estagnação, organizar a gestão e acelerar o crescimento do negócio com estratégia, clareza e execução.",
+      "Desenvolva a mentalidade e as ferramentas de gestão para gerir com mais confiança, aumentar seu lucro e recuperar sua liberdade como empresário.",
   },
 
   one: {
-    conditionText: "Condição especial por tempo limitado",
-    description: "O valor atual pode sair do ar a qualquer momento",
-    cta: "Inscrições abertas agora",
+    description: "De <span>R$397</span> por R$129,90",
+    cta: "Inscreva-se agora",
+    conditionTextTimer: "*O valor atual pode sair do ar em",
+    conditionText: "*O valor atual pode ser atualizado a qualquer momento",
   },
 
   two: {
@@ -68,29 +69,64 @@ export const page: PageType = {
     cards: {
       items: [
         {
-          title: "Fundamentos do Empresário",
+          imageUrl: "/assets/thumbs/01.webp",
           description:
-            "Aula 1 - Apresentação</br>Aula 2 - Introdução</br>Aula 3 - Mentalidade empresarial",
+            "Conheça quem vai te guiar nessa jornada. Saiba a trajetória, a experiência prática e o método de André Costa para transformar a gestão do seu negócio.",
         },
         {
-          title: "Fluxo de Caixa",
+          imageUrl: "/assets/thumbs/02.webp",
           description:
-            "Aula 4 - O que é fluxo de caixa</br>Aula 5 - O erro clássico dos pequenos empresários",
+            "Descubra o que você vai aprender e como aproveitar ao máximo cada aula. Uma visão geral prática para você começar a ver o seu negócio com outros olhos.",
         },
         {
-          title: "Faturamento, Custos e Precificação",
+          imageUrl: "/assets/thumbs/03.webp",
           description:
-            "Aula 6 - Diferença entre faturamento, lucro e margem</br>Aula 7 - Custos fixos, variáveis e precificação correta",
+            "Entenda a diferença entre empresário que pensa pequeno e empresário que pensa grande. Adote a mentalidade certa para tomar decisões com mais clareza e segurança.",
         },
         {
-          title: "Capital de Giro e Estoque",
+          imageUrl: "/assets/thumbs/04.webp",
           description:
-            "Aula 8 - O que é capital de giro</br>Aula 9 - Controle de estoque",
+            "Aprenda a enxergar o caminho do dinheiro dentro do seu negócio. Entenda por que empresas faturam bem e mesmo assim ficam sem caixa no fim do mês.",
         },
         {
-          title: "Indicadores de Venda",
+          imageUrl: "/assets/thumbs/05.webp",
           description:
-            "Aula 10 - Impacto dos Impostos<br/>Aula 11 - Indicadores de performance<br/>Aula 12 - Case de performance<br/>Aula 13 - Estudo de caso de performance",
+            "Descubra os erros mais comuns que travam o crescimento. Identifique se você está cometendo algum deles agora e como corrigir de forma simples.",
+        },
+        {
+          imageUrl: "/assets/thumbs/06.webp",
+          description:
+            "Pare de confundir movimento com resultado. Aprenda a calcular o que de fato sobra no seu bolso e tome decisões baseadas em números reais.",
+        },
+        {
+          imageUrl: "/assets/thumbs/07.webp",
+          description:
+            "Saiba separar o que você gasta independente de vender do que varia com cada venda. Defina preços que cobrem seus custos e ainda geram lucro.",
+        },
+        {
+          imageUrl: "/assets/thumbs/08.webp",
+          description:
+            "Entenda por que falta dinheiro mesmo quando as vendas estão boas. Aprenda a calcular e manter o capital necessário para o negócio funcionar sem travar.",
+        },
+        {
+          imageUrl: "/assets/thumbs/09.webp",
+          description:
+            "Descubra como o estoque mal gerenciado consome seu caixa sem você perceber. Aprenda a comprar na medida certa e evitar desperdício ou falta de produto.",
+        },
+        {
+          imageUrl: "/assets/thumbs/10.webp",
+          description:
+            "Entenda como os impostos afetam diretamente sua margem de lucro. Saiba calcular a carga tributária corretamente e precificar sem tomar prejuízo.",
+        },
+        {
+          imageUrl: "/assets/thumbs/11.webp",
+          description:
+            "Conheça os principais KPIs financeiros que você deve acompanhar todo mês. Aprenda a ler os números do seu negócio e tomar decisões mais inteligentes.",
+        },
+        {
+          imageUrl: "/assets/thumbs/12.webp",
+          description:
+            "Veja na prática como um negócio real aplicou os indicadores certos e transformou seus resultados. Aprenda com exemplos concretos que você pode replicar.",
         },
       ],
     },
