@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xxs: 414px;
+  --breakpoint-xs: 540px;
+
+  --font-montserrat: "Montserrat", "sans-serif";
+
+  --animate-marquee: marquee 80s linear infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+html {
+  @apply text-[87.5%] md:text-[93.75%] xl:text-[100%];
+}
+
+body {
+  @apply font-montserrat bg-[#100E10] text-neutral-50;
+}
