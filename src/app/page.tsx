@@ -354,7 +354,7 @@ export default function HomePage() {
         <Accordion items={page.thirteen.faq.items} />
       </section>
 
-      <ExitIntentModal ctaPathname={ctaPathname} />
+      {/* <ExitIntentModal ctaPathname={ctaPathname} /> */}
     </main>
   );
 }

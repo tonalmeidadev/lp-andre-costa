@@ -20,6 +20,7 @@ export function VSL({
   children,
 }: Omit<VSLProps, "unlockAt"> & { children?: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState(false);
+  const [ready, setReady] = useState(false);
 
   const playerRef = useRef<YT.Player | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,6 +54,7 @@ export function VSL({
         },
         events: {
           onReady: () => {
+            setReady(true);
             setUnlocked(true);
             onUnlock?.();
           },
@@ -72,9 +74,13 @@ export function VSL({
       )}
     >
       <div
-        className="w-full max-w-308 sm:overflow-hidden sm:rounded-xl sm:px-8"
+        className="relative w-full max-w-308 sm:overflow-hidden sm:rounded-xl sm:px-8"
         style={{ aspectRatio: "16/9" }}
       >
+        {!ready && (
+          <div className="absolute inset-0 animate-pulse rounded-xl bg-neutral-900" />
+        )}
+
         <div ref={containerRef} className="h-full w-full" />
       </div>
 

@@ -36,17 +36,17 @@ export function SwiperCard({ items, className }: SwiperCardProps) {
           1280: { slidesPerView: 2 },
           1536: { slidesPerView: 2.5 },
         }}
-        className="w-full"
+        className="w-full items-start!"
       >
         {loopedItems.map((item, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="h-auto!">
             <div className="group relative cursor-grab overflow-hidden rounded-md">
               <div className="overflow-hidden">
                 <Image
                   src={item.imageUrl}
                   alt="Imagem"
-                  width={280}
-                  height={280}
+                  width={655}
+                  height={368}
                   className="pointer-events-none w-full object-cover object-top transition-transform duration-700 select-none group-hover:scale-105"
                 />
               </div>
