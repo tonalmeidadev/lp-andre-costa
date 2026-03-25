@@ -24,7 +24,7 @@ export default async function RootLayout({
       <body className="relative">
         {children}
 
-        <footer className="w-full border-t border-neutral-800 py-16">
+        <footer className="w-full border-t border-neutral-800 py-8 md:py-16">
           <div className="mx-auto flex w-full max-w-300 flex-col items-center justify-center gap-4 px-8 md:flex-row md:justify-between">
             <span className="text-center lg:text-left">
               Copywright @ 2025 | André Costa — Reset Empreendedor

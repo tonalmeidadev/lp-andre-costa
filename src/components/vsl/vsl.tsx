@@ -91,7 +91,7 @@ export function VSL({
       )}
     >
       <div
-        className="w-full max-w-308 overflow-hidden rounded-xl px-8"
+        className="w-full max-w-308 overflow-hidden rounded-xl sm:px-8"
         style={{ aspectRatio: "16/9" }}
       >
         <div ref={containerRef} className="h-full w-full" />
