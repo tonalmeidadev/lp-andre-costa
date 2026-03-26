@@ -25,7 +25,7 @@ import { trackEvent } from "@/utils/track-event";
 export default function HomePage() {
   const [compact, setCompact] = useState(false);
 
-  const ctaPathname = "https://www.google.com";
+  const ctaPathname = "https://pay.hotmart.com/N105087897E?checkoutMode=10";
 
   useEffect(() => {
     const handleScroll = () => setCompact(window.scrollY > 20);
@@ -401,6 +401,8 @@ export default function HomePage() {
           }
         />
       </section>
+
+      <Marquee text={page.five.marqueeText} />
 
       <section className="relative flex h-fit w-full items-end justify-center overflow-hidden py-8 md:py-16">
         <Image

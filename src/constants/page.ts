@@ -18,7 +18,7 @@ export const page: PageType = {
 
   two: {
     vsl: {
-      videoId: "Esb5DeSuysw",
+      videoId: "8ee219ff-ad73-41f7-97e0-3edecc89a66b",
     },
   },
 
@@ -26,12 +26,12 @@ export const page: PageType = {
     ctaRed: "Inscrições abertas — Oferta limitada",
     subdescription:
       "Acesso imediato | Didática simples | Aplicação prática no seu negócio",
-    cta: "Quero destravar o próximo nível",
+    cta: "Quero destravar o meu lucro",
   },
 
   four: {
     headline: {
-      html: "Destrave o próximo nível do seu negócio com estratégia, <strong>gestão e execução de verdade</strong>",
+      html: "Aumente o lucro do seu negócio com <strong>estratégia, gestão e execução de verdade</strong>",
     },
     description:
       "Um programa de mentoria criado para empresários que querem sair da estagnação, organizar a gestão e acelerar o crescimento do negócio com estratégia, clareza e execução.",
@@ -56,7 +56,7 @@ export const page: PageType = {
         "Suas decisões ainda são baseadas em sensação, não em dados",
       ],
     },
-    cta: "Quero sair do achismo",
+    cta: "Quero Lucrar mais",
   },
 
   seven: {
@@ -185,7 +185,7 @@ export const page: PageType = {
     },
     ctaCard:
       "O valor atual pode sair do ar a qualquer momento. Não perca esta condição especial — ela não estará disponível por muito mais tempo.",
-    cta: "Quero ter acesso ao treinamento",
+    cta: "Quero ver dinheiro no caixa",
   },
 
   nine: {
@@ -264,7 +264,7 @@ export const page: PageType = {
         },
       },
     ],
-    cta: "Quero transformar minha jornada",
+    cta: "Quero mais dinheiro no caixa",
   },
 
   eleven: {

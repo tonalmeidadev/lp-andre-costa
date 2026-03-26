@@ -43,7 +43,6 @@ export type PageType = {
   two: {
     vsl: {
       videoId: string;
-      unlockAt: number;
     };
   };
 

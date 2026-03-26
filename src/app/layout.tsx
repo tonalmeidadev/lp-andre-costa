@@ -23,6 +23,48 @@ export default async function RootLayout({
   return (
     <html lang="pt-BR" className={`${montserrat.variable} antialiased`}>
       <head>
+        <link
+          rel="preload"
+          href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/plyr.css"
+          as="style"
+        />
+        <link
+          rel="preload"
+          href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/styles.css"
+          as="style"
+        />
+        <link
+          rel="preload"
+          href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/pb.css"
+          as="style"
+        />
+        <link
+          rel="preload"
+          href="https://config.tv.pandavideo.com.br/vz-44088a1e-878/8ee219ff-ad73-41f7-97e0-3edecc89a66b.json"
+          as="fetch"
+        />
+        <link
+          rel="preload"
+          href="https://config.tv.pandavideo.com.br/vz-44088a1e-878/config.json"
+          as="fetch"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://b-vz-44088a1e-878.tv.pandavideo.com.br"
+        />
+        <link
+          rel="preload"
+          href="https://b-vz-44088a1e-878.tv.pandavideo.com.br/8ee219ff-ad73-41f7-97e0-3edecc89a66b/playlist.m3u8"
+          as="fetch"
+        />
+        <link
+          rel="prerender"
+          href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/?v=8ee219ff-ad73-41f7-97e0-3edecc89a66b"
+        />
+        <link
+          rel="dns-prefetch"
+          href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
           strategy="afterInteractive"

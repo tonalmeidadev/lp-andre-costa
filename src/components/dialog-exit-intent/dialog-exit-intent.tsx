@@ -56,7 +56,7 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
               Ei, espera! Antes de ir...
             </span>
 
-            <div className="flex items-center justify-between gap-8">
+            <div className="flex items-end justify-between gap-8">
               <Dialog.Title className="text-2xl leading-snug font-bold">
                 Oferta exclusiva{" "}
                 <span className="bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-transparent">
@@ -72,7 +72,7 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
             <div className="flex flex-col gap-1">
               <span className="text-lg font-bold">Reset Empreendedor</span>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-neutral-500 line-through">
+                <span className="text-lg text-neutral-400 line-through">
                   R$ 397
                 </span>
                 <span className="text-2xl font-bold text-neutral-50">
