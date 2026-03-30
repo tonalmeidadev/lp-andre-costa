@@ -173,9 +173,9 @@ export const page: PageType = {
             itemsPerColumn: 3,
             items: [
               "Acesso ao treinamento completo",
-              "12 módulos práticas e objetivos",
-              "40 aulas",
-              "4 horas",
+              "5 módulos práticas e objetivos",
+              "22 aulas",
+              "3 horas de conteúdo",
               "Conteúdo simples para aplicar no pequeno negócio",
               "Acesso imediato após a confirmação",
             ],
