@@ -27,10 +27,10 @@ export function Hero({ headline, description }: HeroProps) {
       <div className="absolute bottom-0 -z-10 h-3/4 w-full bg-linear-to-t from-[#100E10] from-55% to-[#100E10]/0 xxs:h-[70%] xs:h-[60%] sm:h-[55%] md:h-1/2" />
 
       <div className="flex w-full max-w-240 flex-col gap-9 px-4 pb-20">
-        <h1
+        <h2
           dangerouslySetInnerHTML={{ __html: headline }}
           className={twMerge(
-            "text-center text-4xl font-medium",
+            "text-center text-3xl font-medium xs:text-4xl",
             "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
             "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
           )}

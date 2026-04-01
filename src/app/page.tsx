@@ -210,7 +210,7 @@ export default function HomePage() {
         <h1
           dangerouslySetInnerHTML={{ __html: page.one.headline.html }}
           className={twMerge(
-            "text-center text-4xl font-medium",
+            "text-center text-3xl font-medium xs:text-4xl",
             "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
             "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
           )}
@@ -253,7 +253,7 @@ export default function HomePage() {
       <Marquee text={page.five.marqueeText} />
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+        <h2 className="mb-6 text-center text-2xl font-medium -tracking-wide xs:text-4xl">
           {page.six.title}
         </h2>
 
@@ -280,7 +280,7 @@ export default function HomePage() {
 
       <section className="flex h-fit w-full flex-col items-center py-8 md:py-16">
         <div className="flex w-full max-w-240 flex-col px-8">
-          <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+          <h2 className="mb-6 text-center text-3xl font-medium -tracking-wide xs:text-4xl">
             {page.seven.title}
           </h2>
 
@@ -305,7 +305,7 @@ export default function HomePage() {
       </section>
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-        <h2 className="mb-12 text-center text-4xl font-medium -tracking-wide">
+        <h2 className="mb-12 text-center text-3xl font-medium -tracking-wide xs:text-4xl">
           {page.eight.title}
         </h2>
 
@@ -365,7 +365,7 @@ export default function HomePage() {
 
       <section className="flex w-full max-w-300 flex-col items-center px-8 py-8 md:py-16">
         <div className="mb-12 grid w-full grid-cols-1 items-center gap-8 sm:grid-cols-2">
-          <h2 className="text-center text-4xl font-medium -tracking-wide sm:max-w-100 sm:text-start">
+          <h2 className="text-center text-3xl font-medium -tracking-wide xs:text-4xl sm:max-w-100 sm:text-start">
             {page.nine.title}
           </h2>
 
@@ -378,7 +378,7 @@ export default function HomePage() {
       </section>
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+        <h2 className="mb-6 text-center text-3xl font-medium -tracking-wide xs:text-4xl">
           {page.ten.title}
         </h2>
 
@@ -435,7 +435,7 @@ export default function HomePage() {
           />
 
           <div className="flex flex-col items-center gap-4 lg:items-start">
-            <h2 className="w-fit bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-center text-4xl font-medium text-transparent lg:text-left">
+            <h2 className="w-fit bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-center text-3xl font-medium text-transparent xs:text-4xl lg:text-left">
               {page.eleven.biography.name}
             </h2>
 
@@ -474,7 +474,7 @@ export default function HomePage() {
       </section>
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
-        <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
+        <h2 className="mb-6 text-center text-3xl font-medium -tracking-wide xs:text-4xl">
           {page.thirteen.faq.title}
         </h2>
 
