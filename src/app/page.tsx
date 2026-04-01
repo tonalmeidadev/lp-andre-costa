@@ -285,13 +285,18 @@ export default function HomePage() {
           </h2>
 
           <span
-            className="mb-6 text-center"
+            className="mb-12 text-center [&>span]:font-semibold"
             dangerouslySetInnerHTML={{ __html: page.seven.description }}
           />
 
-          <h3 className="text-center text-2xl font-semibold">
-            {page.seven.subdescription}
+          <h3 className="mb-6 text-center text-2xl font-semibold">
+            {page.seven.subtitle}
           </h3>
+
+          <span
+            className="text-center [&>span]:font-semibold"
+            dangerouslySetInnerHTML={{ __html: page.seven.subdescription }}
+          />
         </div>
 
         <div className="mt-12 flex h-fit w-full flex-col px-8">
@@ -332,6 +337,10 @@ export default function HomePage() {
             />
           </div>
         ))}
+
+        <h3 className="mb-12 text-center text-2xl font-semibold -tracking-wide">
+          {page.eight.subdescription}
+        </h3>
 
         <div className="flex w-full max-w-240 flex-col">
           <div className="mb-6 flex items-center gap-4 rounded-[0.625rem] border border-amber-400/25 bg-amber-400/5 px-6 py-4 shadow-2xl shadow-amber-400/10">
@@ -431,7 +440,7 @@ export default function HomePage() {
             </h2>
 
             <div
-              className="text-center lg:text-left"
+              className="text-center lg:text-left [&>h2]:mb-3 [&>h2]:text-xl [&>h2]:font-semibold [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-2 [&>ul>li>span]:text-green-300"
               dangerouslySetInnerHTML={{
                 __html: page.eleven.biography.bio.html,
               }}
@@ -466,10 +475,21 @@ export default function HomePage() {
 
       <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
         <h2 className="mb-6 text-center text-4xl font-medium -tracking-wide">
-          Perguntas frequentes
+          {page.thirteen.faq.title}
         </h2>
 
         <Accordion items={page.thirteen.faq.items} />
+
+        <ButtonSecure
+          text={page.thirteen.cta}
+          pathname={ctaPathname}
+          onClick={() =>
+            trackEvent("click_cta", {
+              button_name: page.thirteen.cta,
+              location: "cta_abaixo_faq",
+            })
+          }
+        />
       </section>
 
       <DialogExitIntent ctaPathname={ctaPathname} />

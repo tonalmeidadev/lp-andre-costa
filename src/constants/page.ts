@@ -10,10 +10,10 @@ export const page: PageType = {
 
   one: {
     headline: {
-      html: "Aprenda a gerir sua empresa com <strong>método, clareza e controle</strong>",
+      html: "Enquanto você toca seu negócio no achismo, você continua longe de viver a vida que você e a sua família merecem",
     },
     description:
-      "Desenvolva a mentalidade e as ferramentas de gestão para gerir com mais confiança, aumentar seu lucro e recuperar sua liberdade como empresário.",
+      "O Reset Empreendedor é um treinamento direto ao ponto que coloca seu negócio para trabalhar a favor dos seus objetivos, em vez de roubar suas noites de sono",
   },
 
   two: {
@@ -31,10 +31,10 @@ export const page: PageType = {
 
   four: {
     headline: {
-      html: "Aumente o lucro do seu negócio com <strong>estratégia, gestão e execução de verdade</strong>",
+      html: "Construa um negócio que traga riqueza para o seu bolso",
     },
     description:
-      "Um programa de mentoria criado para empresários que querem sair da estagnação, organizar a gestão e acelerar o crescimento do negócio com estratégia, clareza e execução.",
+      "Em poucas horas, você vai parar de ser passageiro dos seus resultados e começar a ser o condutor do seu futuro",
   },
 
   five: {
@@ -42,29 +42,31 @@ export const page: PageType = {
   },
 
   six: {
-    title: "Muitos empreendedores não quebram por falta de venda.",
+    title:
+      "Você trabalha muito. Tenta vender todos os dias. E ainda assim… o dinheiro não é suficiente.",
     description:
-      "Quebram porque não controlam caixa, não entendem margem, misturam dinheiro da empresa com dinheiro pessoal, precificam no chute e tomam decisões sem dados.",
+      "Muitos empreendedores não enriquecem por vender mais. Enriquecem porque dominaram o poder de enxergar o que ninguém enxerga.",
     bullets: {
       itemsPerColumn: 3,
       variant: "check" as const,
       items: [
-        "Você vende, mas não sabe quanto realmente sobra",
-        "Seu preço parece certo, mas sua margem continua fraca",
-        "Falta dinheiro mesmo com faturamento entrando",
-        "Você não sabe exatamente o que está drenando o caixa",
-        "Suas decisões ainda são baseadas em sensação, não em dados",
+        "No fim do mês não sobra nada, e não sabe por quê",
+        "Sua margem está apertada sem que você perceba",
+        "Falta dinheiro para pagar contas mesmo com o faturamento entrando",
+        "Vive um dia de cada vez e não sabe como sair dessa",
+        "Toma decisões baseadas no achismo e não em dados de verdade",
+        "Você não sabe exatamente o que está drenando o seu dinheiro",
       ],
     },
     cta: "Quero Lucrar mais",
   },
 
   seven: {
-    title:
-      "O Reset Empreendedor foi criado para colocar mais dinheiro no seu negócio e no seu bolso",
-    description:
-      "Esse treinamento reúne os fundamentos que todo empreendedor deveria dominar para sair do improviso e começar e agir como dono do jogo.<br/><br/>Uma jornada com direção e sem achismos desde o primeiro passo",
-    subdescription: "O que você vai aprender no Reset Empreendedor",
+    title: "Em poucas horas, você vai conseguir mudar o destino do seu negócio",
+    description: `O Reset Empreendedor reúne os fundamentos que todo empreendedor deveria dominar para sair do achismo e começar a agir como dono do jogo.<br/><br/><span>Saberá quanto realmente lucra —</span> Chega de confundir faturamento com lucro. Você vai calcular o que de fato fica no seu bolso.<br/><span>Vai precificar com lógica —</span> Nunca mais preço no chute. Você vai saber o que cobrar cobrindo custos e gerando margem real.<br/><span>Vai tomar decisões com dados —</span> Chega de decidir na sensação. Você vai ler os indicadores certos e agir com segurança.<br/><span>Vai entender o fluxo de caixa —</span> Vai saber por que falta dinheiro quando as vendas estão boas — e como evitar isso.<br/><span>Vai deixar de ter dinheiro parado —</span> Estoque, capital de giro e impostos deixarão de ser caixas-pretas que consomem seu caixa.<br/><span>Vai pensar como dono de negócio —</span> A mentalidade de quem constrói empresa com direção, não de quem apenas "toca o dia a dia".`,
+    subtitle: "5 módulos. 22 aulas. Zero enrolação.",
+    subdescription:
+      "O Reset Empreendedor reúne os fundamentos que todo empreendedor deveria dominar para sair do achismo e começar a agir como dono do jogo.",
     cards: {
       items: [
         {
@@ -170,19 +172,22 @@ export const page: PageType = {
       items: [
         {
           blocks: {
-            itemsPerColumn: 3,
+            itemsPerColumn: 4,
             items: [
-              "Acesso ao treinamento completo",
-              "5 módulos práticas e objetivos",
-              "22 aulas",
-              "3 horas de conteúdo",
-              "Conteúdo simples para aplicar no pequeno negócio",
+              "Acesso ao treinamento completo (22 aulas)",
+              "5 módulos práticos e objetivos",
+              "3 horas de conteúdo aplicável ao seu negócio",
+              "Planilha de fluxo de caixa pronta para usar",
+              "Calculadora de precificação",
+              "Roteiro semanal de acompanhamento financeiro",
               "Acesso imediato após a confirmação",
             ],
           },
         },
       ],
     },
+    subdescription:
+      "🛡️ Garantia de 7 dias — devolvemos 100% do seu investimento sem perguntas.",
     ctaCard:
       "O valor atual pode sair do ar a qualquer momento. Não perca esta condição especial — ela não estará disponível por muito mais tempo.",
     cta: "Quero ver dinheiro no caixa",
@@ -197,33 +202,33 @@ export const page: PageType = {
         items: [
           {
             rating: 5,
-            text: "Eu percebi que o problema do meu negócio não era só vender mais. Era entender melhor para onde o dinheiro estava indo. O conteúdo me ajudou a enxergar isso com muito mais clareza.",
+            text: "Eu percebi que meu problema não era vender mais. Era entender para onde o dinheiro estava indo. Depois do treinamento enxergo meu caixa com muito mais clareza — e parei de tomar susto no fim do mês.",
             author: {
-              name: "Ricardo A.",
+              name: "Ricardo A. — Empresário",
               locale: "Belo Horizonte",
             },
           },
           {
             rating: 5,
-            text: "O que mais gostei foi a forma simples de explicar assuntos que parecem complicados. Você termina a aula já pensando em como aplicar no seu negócio.",
+            text: "Parecia que era assunto complicado. Mas o André explica de um jeito que você termina a aula já pensando em como aplicar. No dia seguinte já mudei a forma como precificava meus serviços.",
             author: {
-              name: "Mariana S.",
+              name: "Mariana S. — Prestadora de Serviços",
               locale: "São Paulo",
             },
           },
           {
             rating: 5,
-            text: "Depois que comecei a olhar fluxo de caixa, margem e precificação do jeito certo, ficou muito mais fácil tomar decisão sem depender de achismo.",
+            text: "Comecei a olhar fluxo de caixa, margem e precificação do jeito certo. A sensação de tomar decisão com dados na mão, em vez de no achismo, muda completamente a forma de tocar o negócio.",
             author: {
-              name: "Fernanda L.",
+              name: "Fernanda L. — Lojista",
               locale: "Curitiba",
             },
           },
           {
             rating: 5,
-            text: "É o tipo de conteúdo que todo empreendedor deveria ver antes de continuar crescendo no improviso. Direto, prático e aplicável.",
+            text: "É o tipo de conteúdo que todo empreendedor deveria ver antes de continuar crescendo no improviso. Direto, prático e sem enrolação. Me fez perceber erros que eu cometia há anos sem saber.",
             author: {
-              name: "Carlos M.",
+              name: "Carlos M. — Empresário",
               locale: "Rio de Janeiro",
             },
           },
@@ -273,7 +278,7 @@ export const page: PageType = {
       backgroundUrl: "/assets/background.webp",
       photoUrl: "/assets/bio.webp",
       bio: {
-        html: "<p>André Costa é empresário, mentor e executivo com uma trajetória construída na prática, unindo gestão, estratégia e desenvolvimento humano.</p><br/><p><p>Nascido em Cuiabá, é formado em Administração de Empresas, com pós-graduação em Desenvolvimento Humano para Gestores pela Fundação Getulio Vargas, formação em Global Business Management pelo IBMEC e certificação em M&A pela Columbia University, em Nova York.</p><br/><p>Iniciou sua carreira na Coca-Cola, mas foi no setor farmacêutico que consolidou sua história, acumulando quase duas décadas de experiência e cofundando uma das maiores companhias do segmento.</p><br/><p>Ao longo dessa jornada, André desenvolveu uma visão clara: negócios crescem de verdade quando unem resultado, estrutura e pessoas. Mais do que títulos ou cargos, acredita na construção de ambientes em que empresas possam prosperar e pessoas possam florescer com propósito.</p><br/><p>Casado com Júlia e pai da Liz, leva para sua atuação a mesma convicção que guia sua vida: crescimento consistente não acontece por acaso, mas por direção, coragem e consciência.</p>",
+        html: "<h2>Quase duas décadas na prática. Não no PowerPoint.</h2><p>André Costa não aprendeu gestão apenas na teoria. Aprendeu cofundando e escalando uma das maiores empresas do setor farmacêutico brasileiro, com todos os erros, crises de caixa e decisões difíceis que isso implica.</p><br/><p><p>O método que ele ensina no Reset Empreendedor é o que ele próprio utiliza. Não é somente conteúdo teórico: é gestão que funciona na prática de quem quer ser dono de um negócio próspero de verdade.</p><br/>  <ul><li><span>✔</span> Pós-graduação em Desenvolvimento Humano para Gestores (FGV)</li><li><span>✔</span> Global Business Management (IBMEC)</li><li><span>✔</span> Certificação em M&A — Columbia University, Nova York</li><li><span>✔</span> Quase 20 anos de experiência executiva no setor privado</li></ul>",
       },
     },
   },
@@ -289,36 +294,35 @@ export const page: PageType = {
 
   thirteen: {
     faq: {
+      title: "Tire suas dúvidas antes de decidir",
       items: [
         {
-          question: "O Reset Empreendedor serve para quem está começando?",
+          question: "Funciona para quem está começando?",
           answer:
-            "Sim. Principalmente para quem quer começar sem repetir erros clássicos de gestão.",
+            "Sim — e é um dos melhores momentos para aprender isso. Quem começa sem essa base repete os erros mais comuns por anos antes de entender o que está errado.",
         },
         {
-          question: "Esse treinamento é só sobre finanças?",
+          question: "Preciso entender de contabilidade?",
           answer:
-            "Não. Ele passa por mentalidade, finanças, precificação, margem, capital de giro, estoque, impostos, indicadores e marketing básico.",
+            "Não. O treinamento foi criado especificamente para empreendedores sem formação em finanças. A didática é simples e a aplicação é imediata.",
         },
         {
-          question: "Preciso entender de planilhas ou contabilidade?",
+          question: "É só sobre finanças?",
           answer:
-            "Não. O conteúdo foi pensado para ser simples, direto e aplicável.",
+            "Finanças é o fio condutor, mas o treinamento cobre mentalidade de gestão, indicadores, estoque, precificação e tomada de decisão — tudo integrado.",
         },
         {
           question: "Em quanto tempo consigo aplicar?",
-          answer: "Você consegue começar a aplicar desde as primeiras aulas.",
+          answer:
+            "A maioria dos alunos já aplica algo no primeiro dia. O conteúdo é estruturado para você assistir e agir — não para acumular no histórico sem usar.",
         },
         {
           question: "O acesso é imediato?",
-          answer: "Sim, após a confirmação do pagamento.",
-        },
-        {
-          question: "Tem garantia?",
           answer:
-            "Garantia incondicional de 7 dias. Assista, avalie e, se não fizer sentido para você, basta solicitar o reembolso dentro do prazo.",
+            "Sim. Assim que o pagamento é confirmado, você recebe acesso completo ao treinamento e todos os materiais incluídos.",
         },
       ],
     },
+    cta: "Sua mudança em um clique",
   },
 } as const;

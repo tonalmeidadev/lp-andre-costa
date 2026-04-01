@@ -14,7 +14,7 @@ export function Accordion({ items, className }: AccordionProps) {
       collapsible
       type="single"
       defaultValue="item-0"
-      className={twMerge("w-full", className)}
+      className={twMerge("mb-12 w-full", className)}
       onValueChange={(value) => {
         if (value) {
           const index = parseInt(value.replace("item-", ""));
@@ -50,7 +50,7 @@ export function Accordion({ items, className }: AccordionProps) {
           </RadixAccordion.Trigger>
 
           <RadixAccordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-            <p className="pb-4 text-neutral-400">{item.answer}</p>
+            <p className="pb-4 text-neutral-200">{item.answer}</p>
           </RadixAccordion.Content>
         </RadixAccordion.Item>
       ))}

@@ -34,33 +34,27 @@ export type PageType = {
     description: string;
     cta: string;
   };
-
   one: {
     headline: { html: string };
     description: string;
   };
-
   two: {
     vsl: {
       videoId: string;
     };
   };
-
   three: {
     ctaRed: string;
     subdescription: string;
     cta: string;
   };
-
   four: {
     headline: { html: string };
     description: string;
   };
-
   five: {
     marqueeText: string;
   };
-
   six: {
     title: string;
     description: string;
@@ -71,16 +65,15 @@ export type PageType = {
     };
     cta: string;
   };
-
   seven: {
     title: string;
     description: string;
+    subtitle: string;
     subdescription: string;
     cards: {
       items: readonly SwiperCardItem[];
     };
   };
-
   eight: {
     title: string;
     bullets: BulletSection[];
@@ -88,10 +81,10 @@ export type PageType = {
       title: string;
       items: BlockSection[];
     };
+    subdescription: string;
     ctaCard: string;
     cta: string;
   };
-
   nine: {
     title: string;
     description: string;
@@ -101,14 +94,12 @@ export type PageType = {
       };
     };
   };
-
   ten: {
     title: string;
     description: string;
     sections: BulletSectionWithSub[];
     cta: string;
   };
-
   eleven: {
     biography: {
       name: string;
@@ -117,7 +108,6 @@ export type PageType = {
       bio: { html: string };
     };
   };
-
   twelve: {
     title: string;
     description: string;
@@ -125,10 +115,11 @@ export type PageType = {
     targetBlank: boolean;
     cta: string;
   };
-
   thirteen: {
     faq: {
+      title: string;
       items: readonly AccordionItemProps[];
     };
+    cta: string;
   };
 };
