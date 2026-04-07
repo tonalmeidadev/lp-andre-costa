@@ -91,10 +91,9 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Tempo na página
   useEffect(() => {
     const start = Date.now();
-    const checkpoints = [30, 60, 120, 300]; // segundos
+    const checkpoints = [30, 60, 120, 300];
     const reached = new Set<number>();
 
     const interval = setInterval(() => {
