@@ -12,7 +12,7 @@ import { Accordion } from "@/components/accordion/accordion";
 import { Blocks } from "@/components/blocks/blocks";
 import { BulletPoints } from "@/components/bullet-points/bullet-points";
 import { ButtonSecure } from "@/components/button-secure/button-secure";
-import { CountdownTimer } from "@/components/countdown-timer/countdown-timer";
+// import { CountdownTimer } from "@/components/countdown-timer/countdown-timer";
 import { DialogExitIntent } from "@/components/dialog-exit-intent/dialog-exit-intent";
 import { Hero } from "@/components/hero/hero";
 import { Marquee } from "@/components/marquee/marquee";
@@ -187,17 +187,17 @@ export default function HomePage() {
               <span className="hidden sm:block">{page.zero.conditionText}</span>
               <span className="sm:hidden">{page.zero.conditionTextTimer} </span>
 
-              <CountdownTimer
+              {/* <CountdownTimer
                 variant="text"
                 duration={1052}
                 className="sm:hidden"
-              />
+              /> */}
 
               <span className="sm:hidden">minutos</span>
             </span>
           </div>
 
-          <CountdownTimer duration={1052} className="hidden! sm:flex!" />
+          {/* <CountdownTimer duration={1052} className="hidden! sm:flex!" /> */}
         </div>
       </header>
 

@@ -9,7 +9,7 @@ import { ButtonSecure } from "@/components/button-secure/button-secure";
 import { trackEvent } from "@/utils/track-event";
 
 import { DialogExitIntentProps } from "./types";
-import { CountdownTimer } from "../countdown-timer/countdown-timer";
+// import { CountdownTimer } from "../countdown-timer/countdown-timer";
 
 export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
   const [open, setOpen] = useState(false);
@@ -64,7 +64,7 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
                 </span>
               </Dialog.Title>
 
-              <CountdownTimer duration={1052} />
+              {/* <CountdownTimer duration={1052} /> */}
             </div>
           </div>
 
