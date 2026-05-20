@@ -71,14 +71,14 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
           <div className="mb-6 flex flex-col gap-4 rounded-xl border border-blue-400/20 bg-blue-400/5 p-5">
             <div className="flex flex-col gap-1">
               <span className="text-lg font-bold">Reset Empreendedor</span>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <span className="text-lg text-neutral-400 line-through">
                   R$ 397
                 </span>
                 <span className="text-2xl font-bold text-neutral-50">
                   R$ 129,90
                 </span>
-              </div>
+              </div> */}
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-amber-400/20 bg-amber-400/5 px-4 py-3">
               <span className="text-lg leading-4">🎁</span>

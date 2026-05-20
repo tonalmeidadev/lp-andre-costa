@@ -157,7 +157,7 @@ export default function HomePage() {
         >
           <div className="flex flex-col items-center gap-2">
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2.5">
+              {/* <div className="flex items-center gap-2.5">
                 <div className="size-2.5 animate-pulse rounded-full bg-red-500" />
 
                 <span
@@ -166,7 +166,7 @@ export default function HomePage() {
                 />
               </div>
 
-              <span className="hidden sm:block">—</span>
+              <span className="hidden sm:block">—</span> */}
 
               <Link
                 href={ctaPathname}
