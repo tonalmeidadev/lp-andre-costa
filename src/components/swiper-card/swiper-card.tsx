@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import type { Swiper as SwiperType } from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -16,10 +16,30 @@ import type { SwiperCardProps } from "./types";
 
 export function SwiperCard({ items, className }: SwiperCardProps) {
   const swiperRef = useRef<SwiperType | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const loopedItems = [...items, ...items, ...items];
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          swiperRef.current?.autoplay?.start();
+        } else {
+          swiperRef.current?.autoplay?.stop();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={twMerge("relative w-full", className)}>
+    <div ref={containerRef} className={twMerge("relative w-full", className)}>
       <div className="pointer-events-none absolute top-0 left-0 z-10 hidden h-full w-32 bg-linear-to-r from-[#100E10] to-transparent md:block" />
       <div className="pointer-events-none absolute top-0 right-0 z-10 hidden h-full w-32 bg-linear-to-l from-[#100E10] to-transparent md:block" />
 
