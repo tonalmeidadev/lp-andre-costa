@@ -5,7 +5,7 @@ export function AppHead() {
   return (
     <>
       {/* Panda Video — preconnect only (preloads for iframe resources are ignored by the main browsing context) */}
-      <link
+      {/* <link
         rel="preconnect"
         href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
         crossOrigin="anonymous"
@@ -24,7 +24,7 @@ export function AppHead() {
         rel="preconnect"
         href="https://thumbs.tv.pandavideo.com.br"
         crossOrigin="anonymous"
-      />
+      /> */}
 
       {/* Meta Pixel */}
       <Script id="meta-pixel" strategy="afterInteractive">

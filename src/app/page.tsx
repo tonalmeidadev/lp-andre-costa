@@ -228,7 +228,7 @@ export default function HomePage() {
         <span className="text-center">{page.one.description}</span>
       </section>
 
-      <VSL videoId={page.two.vsl.videoId} />
+      {/* <VSL videoId={page.two.vsl.videoId} /> */}
 
       <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
         <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
