@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRightIcon } from "@phosphor-icons/react/dist/ssr";
 import { twMerge } from "tailwind-merge";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,11 +17,20 @@ import { ButtonSecure } from "@/components/button-secure/button-secure";
 import { DialogExitIntent } from "@/components/dialog-exit-intent/dialog-exit-intent";
 import { Hero } from "@/components/hero/hero";
 import { Marquee } from "@/components/marquee/marquee";
-import { SwiperCard } from "@/components/swiper-card/swiper-card";
-import { TestimonialCarousel } from "@/components/testimonial/testimonial";
 import { VSL } from "@/components/vsl/vsl";
 import { page } from "@/constants/page";
 import { trackEvent } from "@/utils/track-event";
+
+const SwiperCard = dynamic(() =>
+  import("@/components/swiper-card/swiper-card").then((m) => ({
+    default: m.SwiperCard,
+  }))
+);
+const TestimonialCarousel = dynamic(() =>
+  import("@/components/testimonial/testimonial").then((m) => ({
+    default: m.TestimonialCarousel,
+  }))
+);
 
 export default function HomePage() {
   const [compact, setCompact] = useState(false);
@@ -228,9 +238,9 @@ export default function HomePage() {
           </span>
         </div>
 
-        <h3 className="text-center text-2xl font-semibold">
+        <h2 className="text-center text-2xl font-semibold">
           {page.three.subdescription}
-        </h3>
+        </h2>
 
         <ButtonSecure
           text={page.three.cta}

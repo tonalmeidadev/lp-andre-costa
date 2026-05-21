@@ -77,6 +77,7 @@ export function VSL({ videoId, className }: VSLProps) {
       >
         <iframe
           id={`panda-${videoId}`}
+          title="Vídeo de apresentação — Reset Empreendedor"
           src={`${PLAYER_BASE}/embed/?v=${videoId}&autoplay=1&muted=1&controls=0`}
           allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
           allowFullScreen

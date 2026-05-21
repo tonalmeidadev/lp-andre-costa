@@ -14,6 +14,11 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "André Costa — Reset Empreendedor",
+  description:
+    "O Reset Empreendedor é o treinamento de André Costa que coloca o seu negócio para trabalhar a favor dos seus objetivos. Em poucas horas, saia do achismo, precifique com lógica e comece a lucrar de verdade. 5 módulos, 22 aulas, acesso imediato.",
+  alternates: {
+    canonical: "https://www.arocosta.com.br",
+  },
 };
 
 export default async function RootLayout({

@@ -4,31 +4,11 @@ import Script from "next/script";
 export function AppHead() {
   return (
     <>
-      {/* Panda Video preload */}
+      {/* Panda Video — preconnect only (preloads for iframe resources are ignored by the main browsing context) */}
       <link
-        rel="preload"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/plyr.css"
-        as="style"
-      />
-      <link
-        rel="preload"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/styles.css"
-        as="style"
-      />
-      <link
-        rel="preload"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/css/pb.css"
-        as="style"
-      />
-      <link
-        rel="preload"
-        href="https://config.tv.pandavideo.com.br/vz-44088a1e-878/8ee219ff-ad73-41f7-97e0-3edecc89a66b.json"
-        as="fetch"
-      />
-      <link
-        rel="preload"
-        href="https://config.tv.pandavideo.com.br/vz-44088a1e-878/config.json"
-        as="fetch"
+        rel="preconnect"
+        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
+        crossOrigin="anonymous"
       />
       <link
         rel="preconnect"
@@ -44,20 +24,6 @@ export function AppHead() {
         rel="preconnect"
         href="https://thumbs.tv.pandavideo.com.br"
         crossOrigin="anonymous"
-      />
-      <link
-        rel="preconnect"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
-        href="https://b-vz-44088a1e-878.tv.pandavideo.com.br/8ee219ff-ad73-41f7-97e0-3edecc89a66b/playlist.m3u8"
-        as="fetch"
-      />
-      <link
-        rel="prerender"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/?v=8ee219ff-ad73-41f7-97e0-3edecc89a66b"
       />
 
       {/* Meta Pixel */}
