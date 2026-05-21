@@ -12,6 +12,7 @@ export function Hero({ headline, description }: HeroProps) {
         alt="Imagem"
         width={1920}
         height={925}
+        priority
         className="pointer-events-none absolute -z-30 h-full w-full object-cover select-none"
       />
 
@@ -20,6 +21,7 @@ export function Hero({ headline, description }: HeroProps) {
         alt="Imagem"
         width={625}
         height={637}
+        priority
         className="pointer-events-none absolute top-8 -z-20 select-none md:top-16"
       />
 

@@ -72,6 +72,7 @@ export function SwiperCard({ items, className }: SwiperCardProps) {
                   alt="Imagem"
                   width={655}
                   height={368}
+                  sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) 80vw, (max-width: 1279px) 57vw, (max-width: 1535px) 50vw, 40vw"
                   className="pointer-events-none w-full object-cover object-top transition-transform duration-700 select-none group-hover:scale-105"
                 />
               </div>

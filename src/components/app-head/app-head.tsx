@@ -31,8 +31,24 @@ export function AppHead() {
         as="fetch"
       />
       <link
-        rel="dns-prefetch"
+        rel="preconnect"
         href="https://b-vz-44088a1e-878.tv.pandavideo.com.br"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preconnect"
+        href="https://config.tv.pandavideo.com.br"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preconnect"
+        href="https://thumbs.tv.pandavideo.com.br"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preconnect"
+        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
+        crossOrigin="anonymous"
       />
       <link
         rel="preload"
@@ -42,10 +58,6 @@ export function AppHead() {
       <link
         rel="prerender"
         href="https://player-vz-44088a1e-878.tv.pandavideo.com.br/embed/?v=8ee219ff-ad73-41f7-97e0-3edecc89a66b"
-      />
-      <link
-        rel="dns-prefetch"
-        href="https://player-vz-44088a1e-878.tv.pandavideo.com.br"
       />
 
       {/* Meta Pixel */}
