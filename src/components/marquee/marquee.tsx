@@ -25,7 +25,7 @@ export function Marquee({ text, repeat = 15, className }: MarqueeProps) {
   return (
     <div
       className={twMerge(
-        "group overflow-hidden border-t border-b border-neutral-900 py-6",
+        "group w-full overflow-hidden border-t border-b border-neutral-900 py-6",
         className
       )}
     >

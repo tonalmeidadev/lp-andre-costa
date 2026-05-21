@@ -42,10 +42,9 @@
 }
 
 html {
-  @apply text-[87.5%] md:text-[93.75%] xl:text-[100%];
+  @apply text-[87.5%] md:text-[93.75%] xl:text-[100%] overflow-x-hidden;
 }
 
 body {
-  @apply font-montserrat bg-[#100E10] text-neutral-50;
-  overflow-x: hidden;
+  @apply font-montserrat bg-[#100E10] text-neutral-50 overflow-x-hidden;
 }
