@@ -46,8 +46,11 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
 
         <Dialog.Content className="fixed top-1/2 left-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-neutral-800 bg-[#100E10] p-8 shadow-2xl shadow-black/60 focus:outline-none">
           <Dialog.Close asChild>
-            <button className="absolute top-4 right-4 cursor-pointer rounded-full p-1.5 text-neutral-500 transition-colors hover:text-neutral-200">
-              <XIcon size={18} weight="bold" />
+            <button
+              aria-label="Fechar"
+              className="absolute top-4 right-4 cursor-pointer rounded-full p-1.5 text-neutral-500 transition-colors hover:text-neutral-200"
+            >
+              <XIcon size={18} weight="bold" aria-hidden />
             </button>
           </Dialog.Close>
 
