@@ -38,11 +38,19 @@ export default function HomePage() {
   const ctaPathname = "https://pay.hotmart.com/N105087897E?checkoutMode=10";
 
   useEffect(() => {
-    const handleScroll = () => setCompact(window.scrollY > 20);
+    let rafId: ReturnType<typeof requestAnimationFrame>;
 
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => setCompact(window.scrollY > 20));
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   useEffect(() => {
@@ -84,10 +92,15 @@ export default function HomePage() {
     const checkpoints = [25, 50, 75, 100];
     const reached = new Set<number>();
 
+    let maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    const onResize = () => {
+      maxScroll = document.body.scrollHeight - window.innerHeight;
+    };
+
     const handleScroll = () => {
-      const scrolled =
-        (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
-        100;
+      if (!maxScroll) return;
+      const scrolled = (window.scrollY / maxScroll) * 100;
 
       checkpoints.forEach((point) => {
         if (scrolled >= point && !reached.has(point)) {
@@ -97,8 +110,13 @@ export default function HomePage() {
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   useEffect(() => {
