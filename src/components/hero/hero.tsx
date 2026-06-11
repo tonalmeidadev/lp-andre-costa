@@ -1,12 +1,13 @@
-import { twMerge } from "tailwind-merge";
+// import { twMerge } from "tailwind-merge";
 
 import Image from "next/image";
 
-import type { HeroProps } from "./types";
+// import type { HeroProps } from "./types";
 
-export function Hero({ headline, description }: HeroProps) {
+// export function Hero({ headline, description }: HeroProps) {
+export function Hero() {
   return (
-    <section className="relative flex h-220 w-full items-end justify-center overflow-hidden xxs:h-230 xs:h-240">
+    <section className="relative flex h-220 w-full items-end justify-center overflow-hidden xxs:h-230 xs:h-180">
       <Image
         src="/assets/background.webp"
         alt="Imagem"
@@ -26,20 +27,8 @@ export function Hero({ headline, description }: HeroProps) {
       />
 
       <div className="absolute top-0 -z-10 h-10 w-full bg-linear-to-b from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
-      <div className="absolute bottom-0 -z-10 h-3/4 w-full bg-linear-to-t from-[#100E10] from-55% to-[#100E10]/0 xxs:h-[70%] xs:h-[60%] sm:h-[55%] md:h-1/2" />
 
-      <div className="flex w-full max-w-240 flex-col gap-9 px-4 pb-20">
-        <h2
-          dangerouslySetInnerHTML={{ __html: headline }}
-          className={twMerge(
-            "text-center text-3xl font-medium xs:text-4xl",
-            "[&>strong]:bg-linear-to-r [&>strong]:from-[#67A4EE] [&>strong]:to-[#9EC042]",
-            "[&>strong]:bg-clip-text [&>strong]:font-medium [&>strong]:text-transparent"
-          )}
-        />
-
-        <span className="text-center">{description}</span>
-      </div>
+      {/* <div className="absolute bottom-0 -z-10 h-3/4 w-full bg-linear-to-t from-[#100E10] from-55% to-[#100E10]/0 xxs:h-[70%] xs:h-[60%] sm:h-[55%] md:h-1/2" /> */}
     </section>
   );
 }

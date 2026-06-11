@@ -22,7 +22,7 @@ export function TestimonialCarousel({
   const loopedItems = [...items, ...items, ...items];
 
   return (
-    <div className={twMerge("relative w-full", className)}>
+    <div className={twMerge("relative mb-12 w-full", className)}>
       <div className="pointer-events-none absolute top-0 left-0 z-10 hidden h-full w-32 bg-linear-to-r from-[#100E10] to-transparent sm:block" />
       <div className="pointer-events-none absolute top-0 right-0 z-10 hidden h-full w-32 bg-linear-to-l from-[#100E10] to-transparent sm:block" />
 
@@ -46,7 +46,7 @@ export function TestimonialCarousel({
       >
         {loopedItems.map((item, index) => (
           <SwiperSlide key={index} className="h-auto">
-            <div className="flex h-full cursor-grab flex-col justify-between gap-6 rounded-xl border border-neutral-800 bg-neutral-900/50 p-8">
+            <div className="flex h-full cursor-grab flex-col justify-between gap-6 rounded-xl border border-neutral-700 bg-neutral-900/50 p-8">
               <div className="flex flex-col gap-4">
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -61,9 +61,11 @@ export function TestimonialCarousel({
                   ))}
                 </div>
 
-                <p className="text-neutral-200 italic select-none">
-                  &quot;{item.text}&quot;
-                </p>
+                <span className="text-neutral-200 italic select-none">
+                  &quot;{item.title}&quot;
+                </span>
+
+                <p>{item.text}</p>
               </div>
 
               <div className="flex items-center gap-4">

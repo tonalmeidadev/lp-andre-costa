@@ -84,7 +84,6 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
               </div> */}
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-amber-400/20 bg-amber-400/5 px-4 py-3">
-              <span className="text-lg leading-4">🎁</span>
               <div className="flex flex-col gap-0.5">
                 <span className="text-xs font-bold tracking-widest text-amber-400 uppercase">
                   Bônus incluso

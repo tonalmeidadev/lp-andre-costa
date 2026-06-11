@@ -1,5 +1,6 @@
 export type TestimonialItemProps = {
   rating: number;
+  title: string;
   text: string;
   author: {
     name: string;

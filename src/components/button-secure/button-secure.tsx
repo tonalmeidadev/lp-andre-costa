@@ -10,15 +10,17 @@ export function ButtonSecure({
   ...props
 }: ButtonSecureProps) {
   return (
-    <div className="flex flex-col items-center gap-2.5">
+    <div className="flex flex-col items-center gap-4">
       <Button asChild size="base" {...props}>
         <Link href={pathname} target="_blank" onClick={onClick}>
           {text}
         </Link>
       </Button>
 
-      <span className="text-xs text-neutral-400">
-        🔒 Acesso imediato · Pagamento 100% seguro
+      <span className="max-w-lg text-center text-xs text-neutral-400">
+        Treinamento desenvolvido por André Costa — cofundador de uma das maiores
+        empresas do setor farmacêutico brasileiro, com formação executiva pela
+        FGV, IBMEC e Columbia University (NY).
       </span>
     </div>
   );

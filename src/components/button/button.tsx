@@ -6,7 +6,7 @@ import { tv } from "tailwind-variants";
 import type { ButtonProps } from "./types";
 
 const button = tv({
-  base: "cursor-pointer shrink-0 md:w-max rounded text-neutral-50 uppercase bg-linear-to-r from-[#0A3A75] to-[#67A4EE] shadow-xl shadow-[#67A4EE30] transition-all disabled:pointer-events-none disabled:opacity-80",
+  base: "cursor-pointer text-center shrink-0 md:w-max rounded text-neutral-50 uppercase bg-linear-to-r from-[#0A3A75] to-[#67A4EE] shadow-xl shadow-[#67A4EE30] transition-all disabled:pointer-events-none disabled:opacity-80",
   variants: {
     size: {
       sm: "text-xs font-semibold py-2.5 px-6 rounded-md hover:scale-105",
