@@ -214,7 +214,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section
+      {/* <section
         className={twMerge(
           "mt-32 flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-4 pb-8"
         )}
@@ -242,11 +242,11 @@ export default function HomePage() {
           endividamento, recuperar a margem e transformar faturamento em lucro
           real.
         </h2>
-      </section>
+      </section> */}
 
       {/* <VSL videoId="8ee219ff-ad73-41f7-97e0-3edecc89a66b" /> */}
 
-      <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
+      {/* <section className="flex w-full max-w-240 flex-col items-center gap-6 px-8 pb-8">
         <div className="flex items-center gap-2.5 rounded-3xl border border-[#FF4848] px-8 py-3">
           <div className="size-2.5 animate-pulse rounded-full bg-[#FF4848]" />
           <span className="text-sm font-semibold text-[#FF4848] uppercase">
@@ -268,16 +268,39 @@ export default function HomePage() {
             })
           }
         />
-      </section>
+      </section> */}
 
       <Hero
       // headline={...}
       // description={...}
       />
 
+      <section className="relative flex h-220 w-full items-end justify-center overflow-hidden xxs:h-230 xs:h-180">
+        <Image
+          src="/assets/background.webp"
+          alt="Imagem"
+          width={1920}
+          height={925}
+          priority
+          className="pointer-events-none absolute -z-30 h-full w-full object-cover select-none"
+        />
+
+        <Image
+          src="/assets/photo2.webp"
+          alt="Imagem"
+          width={648}
+          height={810}
+          priority
+          className="pointer-events-none -z-20 h-full w-auto shrink-0 object-contain select-none"
+        />
+
+        <div className="absolute top-0 -z-10 h-10 w-full bg-linear-to-b from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
+        <div className="absolute bottom-0 -z-10 h-10 w-full bg-linear-to-t from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
+      </section>
+
       <section
         className={twMerge(
-          "mt-24 flex w-full max-w-240 flex-col items-center gap-4 px-8 pt-4 pb-8"
+          "flex w-full max-w-240 flex-col items-center gap-4 px-8 pb-8"
         )}
       >
         <h2
@@ -831,7 +854,7 @@ export default function HomePage() {
       </section>
 
       <section className="flex w-full max-w-240 flex-col items-center px-8">
-        <div className="mb-12 grid w-full grid-cols-1 overflow-hidden rounded-2xl border border-neutral-700 sm:grid-cols-[auto_1fr]">
+        <div className="grid w-full grid-cols-1 overflow-hidden rounded-2xl border border-neutral-700 sm:grid-cols-[auto_1fr]">
           {/* Left — price block */}
           <div className="flex flex-col items-center justify-center gap-3 bg-white/6 px-10 py-10 sm:border-r sm:border-white/10">
             <span className="text-xs font-semibold tracking-widest uppercase">
@@ -839,21 +862,27 @@ export default function HomePage() {
             </span>
             <div className="flex flex-col items-center">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-lg font-semibold text-neutral-300">
+                {/* <span className="text-lg font-semibold text-neutral-300">
                   12x de
-                </span>
-                <span className="text-6xl font-bold tracking-tight">
-                  R$&nbsp;12,99
+                </span> */}
+                <span className="flex items-end gap-2 bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-6xl font-bold tracking-tight text-transparent">
+                  50%<span className="text-2xl text-neutral-50">OFF</span>
                 </span>
               </div>
-              <div className="mt-3 rounded-lg bg-neutral-700 px-4 py-2 text-center">
+              <div className="mt-3 rounded-lg bg-neutral-700 px-8 py-3 text-center">
                 <span className="text-xs tracking-widest uppercase">
                   ou à vista por
                 </span>
-                <p className="text-2xl font-bold">R$ 129,90</p>
+
+                <div className="flex items-center gap-2">
+                  <p className="relative font-bold after:absolute after:top-1/2 after:-right-1 after:-left-1 after:h-1 after:-translate-y-1/2 after:-rotate-6 after:rounded after:bg-red-600">
+                    R$ 129,90
+                  </p>
+                  <p className="text-2xl font-bold">R$ 64,95</p>
+                </div>
               </div>
             </div>
-            <span className="mt-1 text-xs line-through">de R$ 397,00</span>
+            {/* <span className="mt-1 text-xs line-through">de R$ 397,00</span> */}
           </div>
 
           {/* Right — details + CTA */}
@@ -902,7 +931,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="flex w-full max-w-240 flex-col items-center px-8 py-8 md:py-16">
+      <section className="relative flex w-full items-end justify-center overflow-hidden xxs:h-100 xs:h-150">
+        <Image
+          src="/assets/photo3.webp"
+          alt="Imagem"
+          width={648}
+          height={810}
+          priority
+          className="pointer-events-none -z-20 h-full w-auto shrink-0 object-contain select-none"
+        />
+
+        <div className="absolute top-0 -z-10 h-10 w-full bg-linear-to-b from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
+        <div className="absolute bottom-0 -z-10 h-10 w-full bg-linear-to-t from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
+      </section>
+
+      <section className="flex w-full max-w-240 flex-col items-center px-8 pb-8 md:pb-16">
         <h2 className="mb-6 text-center text-3xl font-medium -tracking-wide xs:text-4xl">
           Vamos jogar limpo:
         </h2>

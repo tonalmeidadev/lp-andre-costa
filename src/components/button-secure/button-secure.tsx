@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 import Link from "next/link";
 
 import type { ButtonSecureProps } from "./types";
@@ -7,10 +9,11 @@ export function ButtonSecure({
   text,
   pathname = "/",
   onClick,
+  className,
   ...props
 }: ButtonSecureProps) {
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className={twMerge("flex flex-col items-center gap-4", className)}>
       <Button asChild size="base" {...props}>
         <Link href={pathname} target="_blank" onClick={onClick}>
           {text}

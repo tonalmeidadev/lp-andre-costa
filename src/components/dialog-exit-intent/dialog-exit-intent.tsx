@@ -48,9 +48,9 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
           <Dialog.Close asChild>
             <button
               aria-label="Fechar"
-              className="absolute top-4 right-4 cursor-pointer rounded-full p-1.5 text-neutral-500 transition-colors hover:text-neutral-200"
+              className="absolute top-4 right-4 flex size-9 cursor-pointer items-center justify-center rounded-full border border-neutral-700 text-neutral-400 transition-colors hover:border-neutral-500 hover:text-neutral-200 focus-visible:border-[#67A4EE] focus-visible:text-neutral-200 focus-visible:ring-2 focus-visible:ring-[#67A4EE]/50 focus-visible:outline-none"
             >
-              <XIcon size={18} weight="bold" aria-hidden />
+              <XIcon size={16} weight="bold" aria-hidden />
             </button>
           </Dialog.Close>
 
@@ -71,28 +71,32 @@ export function DialogExitIntent({ ctaPathname }: DialogExitIntentProps) {
             </div>
           </div>
 
-          <div className="mb-6 flex flex-col gap-4 rounded-xl border border-blue-400/20 bg-blue-400/5 p-5">
-            <div className="flex flex-col gap-1">
-              <span className="text-lg font-bold">Reset Empreendedor</span>
-              {/* <div className="flex items-center gap-2">
-                <span className="text-lg text-neutral-400 line-through">
-                  R$ 397
+          <div className="mb-6 flex items-stretch gap-6 rounded-xl border border-blue-400/20 bg-blue-400/5 p-5">
+            <div className="flex flex-1 flex-col gap-1">
+              <span className="text-xs font-bold tracking-widest text-[#67A4EE] uppercase">
+                Por tempo limitado
+              </span>
+              <span className="text-neutral-200">Garanta agora com</span>
+              <div className="flex items-baseline gap-2">
+                <span className="bg-linear-to-r from-[#67A4EE] to-[#9EC042] bg-clip-text text-5xl leading-none font-extrabold text-transparent">
+                  50%
                 </span>
-                <span className="text-2xl font-bold text-neutral-50">
-                  R$ 129,90
-                </span>
-              </div> */}
-            </div>
-            <div className="flex items-start gap-3 rounded-lg border border-amber-400/20 bg-amber-400/5 px-4 py-3">
-              <div className="flex flex-col gap-0.5">
-                <span className="text-xs font-bold tracking-widest text-amber-400 uppercase">
-                  Bônus incluso
-                </span>
-                <span className="text-sm font-medium text-neutral-200">
-                  Ebook <strong>Impostos para Empresários</strong> — do zero ao
-                  essencial
+                <span className="text-xl font-bold text-neutral-50 uppercase">
+                  Off
                 </span>
               </div>
+            </div>
+
+            <div className="w-px self-stretch bg-neutral-700/60" />
+
+            <div className="flex flex-1 flex-col justify-center gap-0.5">
+              <span className="text-xs font-bold tracking-widest text-amber-400 uppercase">
+                Bônus incluso
+              </span>
+              <span className="text-sm font-medium text-neutral-200">
+                Ebook <strong>Impostos para Empresários</strong> — do zero ao
+                essencial
+              </span>
             </div>
           </div>
 
