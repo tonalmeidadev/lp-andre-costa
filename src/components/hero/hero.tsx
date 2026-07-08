@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="relative mt-29 flex w-full items-stretch justify-center">
       <div className="relative flex h-fit w-full max-w-300 items-center justify-between">
-        <div className="mt-8 flex h-fit flex-col justify-center gap-4 px-8 md:py-24 xl:px-0">
+        <div className="mt-8 flex h-fit flex-col items-center justify-center gap-4 px-8 md:py-24 lg:w-1/2 xl:px-0">
           <p className="text-center">
             Para empresários e gestores que faturam, mas não enxergam o
             resultado real do próprio negócio
@@ -69,7 +69,7 @@ export function Hero() {
           width={648}
           height={810}
           priority
-          className="pointer-events-none -z-20 hidden h-full w-auto shrink-0 object-contain select-none lg:block"
+          className="pointer-events-none -z-20 hidden w-1/2 shrink-0 object-contain select-none lg:block"
         />
       </div>
 
