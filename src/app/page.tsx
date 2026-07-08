@@ -291,7 +291,7 @@ export default function HomePage() {
           width={648}
           height={810}
           priority
-          className="pointer-events-none -z-20 h-full w-auto shrink-0 object-contain select-none"
+          className="pointer-events-none -z-20 w-auto shrink-0 object-contain select-none xs:h-full"
         />
 
         <div className="absolute top-0 -z-10 h-10 w-full bg-linear-to-b from-[#100E10] from-55% to-[#100E10]/0 lg:h-14" />
